@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Donation · Dhammakaya Centre Singapore</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* ══════ ONLINE DONATION PAGE SPECIFIC ══════ */
+
+        /* Hero */
+        .don-hero {
+            position: relative;
+            height: 380px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .don-hero img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .don-hero .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(10, 61, 98, .65), rgba(10, 61, 98, .3))
+        }
+
+        .don-hero .hero-text {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #fff;
+            padding: 0 24px;
+            max-width: 700px
+        }
+
+        .don-hero .hero-text h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, .3)
+        }
+
+        .don-hero .hero-text p {
+            font-size: 17px;
+            opacity: .9;
+            line-height: 1.7
+        }
+
+        /* Category header */
+        .cat-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px
+        }
+
+        .cat-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--blue-900)
+        }
+
+        .cat-header h2 small {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-left: 8px
+        }
+
+        .cat-header::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: var(--blue-200);
+            border-radius: 1px
+        }
+
+        /* Merit cards grid */
+        .merit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px
+        }
+
+        .merit-lg {
+            grid-template-columns: repeat(2, 1fr)
+        }
+
+        .m-card {
+            background: #fff;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: .3s;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid #e8eff4;
+            display: flex;
+            flex-direction: column
+        }
+
+        .m-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg)
+        }
+
+        .m-card .m-img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            position: relative
+        }
+
+        .m-card .m-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .4s
+        }
+
+        .m-card:hover .m-img img {
+            transform: scale(1.06)
+        }
+
+        .m-card .m-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            z-index: 1
+        }
+
+        .badge-special {
+            background: #c62828;
+            color: #fff
+        }
+
+        .badge-sunday {
+            background: var(--gold-500);
+            color: #fff
+        }
+
+        .badge-monthly {
+            background: var(--blue-500);
+            color: #fff
+        }
+
+        .m-card .m-body {
+            padding: 18px 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column
+        }
+
+        .m-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--blue-900);
+            line-height: 1.4;
+            margin-bottom: 4px
+        }
+
+        .m-card h3 small {
+            display: block;
+            font-weight: 400;
+            color: var(--text-secondary);
+            font-size: 12px;
+            margin-top: 3px
+        }
+
+        .m-card .m-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-top: 8px;
+            flex: 1
+        }
+
+        .m-card .m-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px solid #eef3f7
+        }
+
+        .m-card .m-price {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--blue-700)
+        }
+
+        .m-card .m-price small {
+            font-weight: 400;
+            color: var(--text-secondary);
+            font-size: 11px
+        }
+
+        .m-card .m-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            background: var(--blue-500);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            transition: .2s;
+            text-decoration: none
+        }
+
+        .m-card .m-btn:hover {
+            background: var(--blue-400)
+        }
+
+        /* Special merit - featured card */
+        .featured-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #fff;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 2px solid var(--gold-400);
+            text-decoration: none;
+            color: inherit;
+            transition: .3s
+        }
+
+        .featured-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg)
+        }
+
+        .featured-card .f-img {
+            overflow: hidden
+        }
+
+        .featured-card .f-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .4s
+        }
+
+        .featured-card:hover .f-img img {
+            transform: scale(1.04)
+        }
+
+        .featured-card .f-body {
+            padding: 32px 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center
+        }
+
+        .featured-card .f-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            padding: 4px 14px;
+            border-radius: 20px;
+            background: #c62828;
+            color: #fff;
+            margin-bottom: 14px;
+            width: fit-content
+        }
+
+        .featured-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--blue-900);
+            margin-bottom: 6px
+        }
+
+        .featured-card h3 small {
+            display: block;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-top: 4px
+        }
+
+        .featured-card .f-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 12px 0 20px
+        }
+
+        .featured-card .f-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 12px 24px;
+            border-radius: var(--radius-md);
+            background: var(--blue-500);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            transition: .2s;
+            text-decoration: none;
+            width: fit-content
+        }
+
+        .featured-card .f-btn:hover {
+            background: var(--blue-400)
+        }
+
+        /* Info banner */
+        .info-banner {
+            background: linear-gradient(135deg, var(--warm-50), #fef6e4);
+            border-radius: var(--radius-lg);
+            padding: 28px 32px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-top: 40px
+        }
+
+        .info-banner .ib-icon {
+            font-size: 36px;
+            flex-shrink: 0
+        }
+
+        .info-banner h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--blue-900);
+            margin-bottom: 4px
+        }
+
+        .info-banner p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6
+        }
+
+        /* Responsive */
+        @media(max-width:900px) {
+            .merit-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .featured-card {
+                grid-template-columns: 1fr
+            }
+
+            .featured-card .f-img {
+                max-height: 250px
+            }
+        }
+
+        @media(max-width:600px) {
+            .don-hero {
+                height: 260px
+            }
+
+            .don-hero .hero-text h1 {
+                font-size: 26px
+            }
+
+            .don-hero .hero-text p {
+                font-size: 14px
+            }
+
+            .merit-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px
+            }
+
+            .m-card h3 {
+                font-size: 14px
+            }
+
+            .m-card .m-desc {
+                display: none
+            }
+
+            .m-card .m-footer {
+                flex-direction: column;
+                gap: 8px;
+                align-items: stretch;
+                text-align: center
+            }
+
+            .featured-card .f-body {
+                padding: 20px 18px
+            }
+
+            .featured-card h3 {
+                font-size: 18px
+            }
+
+            .info-banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px
+            }
+
+            .cat-header h2 {
+                font-size: 20px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ══════ NAV ══════ -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img class="icon" src="images/logo.png" alt="DCS Logo">
+                <div>Dhammakaya Centre Singapore<br><span style="font-size:11px;font-weight:400;opacity:.7">法身寺中心 ·
+                        新加坡</span></div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="activities.html">Activities</a>
+                <a href="meditation.html">Meditation</a>
+                <a href="#" class="account-link"><i class="fas fa-user-circle"></i> Login</a>
+                <a href="online-donations.html" class="donate-link">Online Donation ♡</a>
+                <div class="nav-lang">
+                    <button class="active">EN</button>
+                    <button>中</button>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="activities.html">Activities</a>
+        <a href="meditation.html" class="active">Meditation</a>
+        <a href="#"><i class="fas fa-user-circle"></i> Login</a>
+        <a href="online-donations.html">Online Donation ♡</a>
+    </div>
+
+    <!-- ══════ HERO ══════ -->
+    <section class="hero">
+        <div class="hero-img-wrap">
+            <img src="images/dcs building.png" alt="Support Dhammakaya Centre Singapore">
+        </div>
+    </section>
+
+    <!-- ══════ MAIN CONTENT ══════ -->
+    <div class="main-container" style="padding-top:40px;padding-bottom:60px">
+
+        <!-- ── SPECIAL MERITS ── -->
+        <div class="cat-header">
+            <h2><i class="fas fa-star" style="color:var(--gold-500);margin-right:6px"></i> Special Merits
+                <small>特别功德</small>
+            </h2>
+        </div>
+
+        <a class="featured-card" href="donation.html">
+            <div class="f-img">
+                <img src="images/donation_home.jpg" alt="Qing Ming">
+            </div>
+            <div class="f-body">
+                <div class="f-badge">Special Merit</div>
+                <h3>Qing Ming Transference of Merit<small>清明回向功德</small></h3>
+                <p class="f-desc">Qing Ming or Tomb-Sweeping Festival is a time of the year when we pay respect and show
+                    gratitude to our ancestors and departed loved ones. Join us in this meaningful ceremony to transfer
+                    merits and blessings.</p>
+                <span class="f-btn"><i class="fas fa-heart"></i> Donate Now</span>
+            </div>
+        </a>
+
+        <!-- ── EVERY SUNDAY ACTIVITY ── -->
+        <div class="cat-header" style="margin-top:48px">
+            <h2><i class="fas fa-calendar-check" style="color:var(--gold-500);margin-right:6px"></i> Every Sunday
+                Activity <small>每周日活动</small></h2>
+        </div>
+
+        <div class="merit-grid">
+            <a class="m-card" href="donation.html">
+                <div class="m-img">
+                    <span class="m-badge badge-sunday">Sunday</span>
+                    <img src="images/offer budha.jpg" alt="Offer Buddha">
+                </div>
+                <div class="m-body">
+                    <h3>Offering to Buddha<small>供佛</small></h3>
+                    <p class="m-desc">Donation towards an extraordinary once-a-month ceremony of Offering to All Buddhas
+                        in Nibbana. A special merit not to be missed.</p>
+                    <div class="m-footer">
+                        <div class="m-price">From $10 <small>SGD</small></div>
+                        <span class="m-btn"><i class="fas fa-heart"></i> Donate</span>
+                    </div>
+                </div>
+            </a>
+
+            <a class="m-card" href="donation.html">
+                <div class="m-img">
+                    <span class="m-badge badge-sunday">Sunday</span>
+                    <img src="images/alms offering.jpg" alt="Alms Offering">
+                </div>
+                <div class="m-body">
+                    <h3>Alms Offering<small>供僧</small></h3>
+                    <p class="m-desc">Support the monastic community and donate towards this meaningful Buddhist
+                        tradition of offering requisites to the Sangha.</p>
+                    <div class="m-footer">
+                        <div class="m-price">From $10 <small>SGD</small></div>
+                        <span class="m-btn"><i class="fas fa-heart"></i> Donate</span>
+                    </div>
+                </div>
+            </a>
+
+            <a class="m-card" href="donation.html">
+                <div class="m-img">
+                    <span class="m-badge badge-sunday">Sunday</span>
+                    <img src="images/light offering to buddha.jpg" alt="Celebrate Birth Month">
+                </div>
+                <div class="m-body">
+                    <h3>Celebrate Birth Month<small>庆生月</small></h3>
+                    <p class="m-desc">A special monthly event for anyone born in the same birth month to come and
+                        perform meritorious deeds together.</p>
+                    <div class="m-footer">
+                        <div class="m-price">From $10 <small>SGD</small></div>
+                        <span class="m-btn"><i class="fas fa-heart"></i> Donate</span>
+                    </div>
+                </div>
+            </a>
+
+            <a class="m-card" href="donation.html">
+                <div class="m-img">
+                    <span class="m-badge badge-sunday">Sunday</span>
+                    <img src="images/donation_home.jpg" alt="Transference of Merits">
+                </div>
+                <div class="m-body">
+                    <h3>Transference of Merits<small>回向功德</small></h3>
+                    <p class="m-desc">Calm our mind, perform meritorious deeds and transfer our merits to our departed
+                        loved ones in this monthly ceremony.</p>
+                    <div class="m-footer">
+                        <div class="m-price">From $10 <small>SGD</small></div>
+                        <span class="m-btn"><i class="fas fa-heart"></i> Donate</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- ── MONTHLY DONATIONS ── -->
+        <div class="cat-header" style="margin-top:48px">
+            <h2><i class="fas fa-hand-holding-heart" style="color:var(--blue-500);margin-right:6px"></i> Monthly Giving
+                <small>每月功德</small>
+            </h2>
+        </div>
+
+        <div class="merit-grid">
+            <a class="m-card" href="donation.html">
+                <div class="m-img">
+                    <span class="m-badge badge-monthly">Monthly</span>
+                    <img src="images/dcs daytime.jpg" alt="30-Year Merit Fund">
+                </div>
+                <div class="m-body">
+                    <h3>DCS 30-Year Merit Fund<small>三十年功德基金</small></h3>
+                    <p class="m-desc">Support DCS's mission of promoting world peace through inner peace. Contribute to
+                        the fund for the lease renewal of the next 30 years.</p>
+                    <div class="m-footer">
+                        <div class="m-price">$50 <small>SGD suggested</small></div>
+                        <span class="m-btn"><i class="fas fa-heart"></i> Donate</span>
+                    </div>
+                </div>
+            </a>
+
+            <a class="m-card" href="donation.html">
+                <div class="m-img">
+                    <span class="m-badge badge-monthly">Monthly</span>
+                    <img src="images/wealth prosperity.jpg" alt="Wealth & Prosperity">
+                </div>
+                <div class="m-body">
+                    <h3>Wealth &amp; Prosperity<small>财富与繁荣</small></h3>
+                    <p class="m-desc">Support Dhammakaya Centre Singapore's monthly maintenance and operational
+                        expenses. A physical venue facilitates all good deeds to happen.</p>
+                    <div class="m-footer">
+                        <div class="m-price">From $10 <small>SGD</small></div>
+                        <span class="m-btn"><i class="fas fa-heart"></i> Donate</span>
+                    </div>
+                </div>
+            </a>
+
+            <a class="m-card" href="donation.html">
+                <div class="m-img">
+                    <span class="m-badge badge-monthly">Monthly</span>
+                    <img src="images/light offering to buddha.jpg" alt="Light Offering">
+                </div>
+                <div class="m-body">
+                    <h3>Light Offering to Buddha<small>供灯</small></h3>
+                    <p class="m-desc">Donation towards Light Offering paying homage to the Buddha and Buddha Relics. The
+                        offered lamps are lit daily for a month.</p>
+                    <div class="m-footer">
+                        <div class="m-price">From $10 <small>SGD</small></div>
+                        <span class="m-btn"><i class="fas fa-heart"></i> Donate</span>
+                    </div>
+                </div>
+            </a>
+
+            <a class="m-card" href="donation.html">
+                <div class="m-img">
+                    <span class="m-badge badge-monthly">Monthly</span>
+                    <img src="images/medical fund.jpg" alt="Sangha Medical Fund">
+                </div>
+                <div class="m-body">
+                    <h3>Offer Sangha Medical Fund<small>供僧医疗基金</small></h3>
+                    <p class="m-desc">Donation towards a medical fund for the Sangha in Dhammakaya Centre Singapore so
+                        they can receive good medical care when needed.</p>
+                    <div class="m-footer">
+                        <div class="m-price">From $10 <small>SGD</small></div>
+                        <span class="m-btn"><i class="fas fa-heart"></i> Donate</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- ── INFO BANNER ── -->
+        <div class="info-banner">
+            <div class="ib-icon">🔒</div>
+            <div>
+                <h4>Secure & Transparent Donations</h4>
+                <p>All amounts are in Singapore Dollars (SGD). Your contribution goes directly to supporting DCS's
+                    mission. Dhammakaya Centre Singapore is a registered charity (UEN: S99SS0136C).</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ══════ FOOTER ══════ -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div>
+                <h4>Dhammakaya Centre Singapore</h4>
+                <p>A sanctuary for mindfulness and spiritual growth in the heart of Singapore. Open to all, regardless
+                    of background or experience.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="activities.html">Activities</a>
+                <a href="online-donations.html">Online Donation</a>
+            </div>
+            <div class="footer-links">
+                <h4>Programs</h4>
+                <a href="meditation.html">Basic Meditation</a>
+                <a href="#">Children's Class</a>
+                <a href="#">Dhamma Talks</a>
+                <a href="#">Volunteering</a>
+            </div>
+            <div class="footer-links">
+                <h4>Support</h4>
+                <a href="#">Contact Us</a>
+                <a href="#">FAQ</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">My Account</a>
+            </div>
+        </div>
+        <div class="footer-mobile-only">
+            <div class="footer-links-mobile">
+                <div>
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="activities.html">Activities</a>
+                    <a href="online-donations.html">Donation</a>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <a href="#">Contact Us</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">My Account</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 Dhammakaya Centre Singapore. All rights reserved.</div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

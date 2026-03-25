@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCS 30-Year Merit Fund · 三十年功德基金</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        :root {
+            --blue-900: #0a3d62;
+            --blue-800: #0e5a8a;
+            --blue-700: #1479b0;
+            --blue-600: #1a8fcf;
+            --blue-500: #2196c9;
+            --blue-400: #40b4e5;
+            --blue-300: #74ceef;
+            --blue-200: #a8e2f6;
+            --blue-100: #d4f1fb;
+            --blue-50: #edf9fd;
+            --gold-500: #d4a843;
+            --gold-400: #e6c36a;
+            --gold-300: #f0d68a;
+            --warm-50: #fef9f0;
+            --text-primary: #1a2a3a;
+            --text-secondary: #4a6070;
+            --text-light: #fff;
+            --shadow-sm: 0 1px 3px rgba(10, 61, 98, .08);
+            --shadow-md: 0 4px 12px rgba(10, 61, 98, .12);
+            --shadow-lg: 0 8px 30px rgba(10, 61, 98, .16);
+            --shadow-xl: 0 16px 50px rgba(10, 61, 98, .2);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans SC', 'Noto Sans Thai', sans-serif;
+            color: var(--text-primary);
+            background: #f0f6fa;
+            line-height: 1.6
+        }
+
+        /* ── NAV ── */
+        .nav {
+            background: linear-gradient(135deg, var(--blue-900), var(--blue-800));
+            padding: 0 20px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .2)
+        }
+
+        .nav-inner {
+            max-width: 1160px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none
+        }
+
+        .nav-logo .icon {
+            height: 40px;
+            width: auto;
+            display: block
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 6px;
+            align-items: center
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, .85);
+            text-decoration: none;
+            font-size: 13px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: .2s
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #fff;
+            background: rgba(255, 255, 255, .12)
+        }
+
+        .nav-lang {
+            display: flex;
+            gap: 2px;
+            margin-left: 12px
+        }
+
+        .nav-lang button {
+            background: rgba(255, 255, 255, .12);
+            color: #fff;
+            border: none;
+            padding: 4px 10px;
+            font-size: 11px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: .2s
+        }
+
+        .nav-lang button.active {
+            background: var(--blue-500)
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer
+        }
+
+        /* ── BREADCRUMB ── */
+        .breadcrumb {
+            background: var(--blue-800);
+            padding: 8px 20px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, .7);
+            display: flex;
+            justify-content: center
+        }
+
+        .breadcrumb-inner {
+            max-width: 1160px;
+            width: 100%
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, .7);
+            text-decoration: none
+        }
+
+        .breadcrumb a:hover {
+            color: #fff
+        }
+
+        .breadcrumb span {
+            margin: 0 6px
+        }
+
+        /* ── MAIN LAYOUT ── */
+        .main-container {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 24px 20px 60px
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 28px;
+            align-items: start
+        }
+
+        /* ── HERO SECTION ── */
+        .hero-card {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: #fff;
+            box-shadow: var(--shadow-lg)
+        }
+
+        .hero-image {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            overflow: hidden
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block
+        }
+
+        .hero-image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 28px 28px 22px;
+            background: linear-gradient(transparent, rgba(10, 61, 98, .85))
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--blue-500);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            letter-spacing: .3px
+        }
+
+        .hero-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.3
+        }
+
+        .hero-subtitle {
+            font-size: 15px;
+            color: rgba(255, 255, 255, .85);
+            margin-top: 4px
+        }
+
+        /* Thumbnail strip */
+        .thumb-strip {
+            display: flex;
+            gap: 10px;
+            padding: 14px 18px;
+            overflow-x: auto;
+            background: #fff;
+            justify-content: center
+        }
+
+        .thumb-strip::-webkit-scrollbar {
+            height: 0
+        }
+
+        .thumb {
+            width: 110px;
+            height: 72px;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            cursor: pointer;
+            border: 3px solid transparent;
+            flex-shrink: 0;
+            transition: .2s;
+            position: relative
+        }
+
+        .thumb.active {
+            border-color: var(--blue-500);
+            box-shadow: 0 0 0 2px var(--blue-300)
+        }
+
+        .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        /* ── KEY STATS ── */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            padding: 0 18px 18px
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 14px 8px;
+            border: 2px solid var(--blue-200);
+            border-radius: var(--radius-md);
+            background: var(--blue-50)
+        }
+
+        .stat-box .num {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--blue-700)
+        }
+
+        .stat-box .label {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 2px
+        }
+
+        /* ── ABOUT SECTION ── */
+        .about-section {
+            padding: 22px 22px 24px;
+            background: #fff
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--blue-900);
+            margin-bottom: 12px
+        }
+
+        .section-title small {
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-left: 6px;
+            font-size: 13px
+        }
+
+        .about-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7
+        }
+
+        .quote-box {
+            margin: 16px 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, var(--warm-50), #fef6e4);
+            border-left: 4px solid var(--gold-500);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            font-style: italic;
+            color: var(--blue-900);
+            font-size: 14px;
+            line-height: 1.7
+        }
+
+        .blessing-box {
+            margin: 14px 0 0;
+            padding: 16px 18px;
+            background: var(--blue-50);
+            border-radius: var(--radius-md)
+        }
+
+        .blessing-box li {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            padding-left: 6px;
+            list-style: none
+        }
+
+        .blessing-box li::before {
+            content: "✦ ";
+            color: var(--gold-500);
+            font-weight: 700
+        }
+
+        .ceremony-banner {
+            margin: 16px 0 0;
+            padding: 14px 18px;
+            background: linear-gradient(135deg, #fff4e0, #ffefc6);
+            border-radius: var(--radius-md);
+            display: flex;
+            gap: 12px;
+            align-items: center
+        }
+
+        .ceremony-banner .lantern {
+            font-size: 28px
+        }
+
+        .ceremony-banner .info {
+            font-size: 13px;
+            color: var(--text-primary)
+        }
+
+        .ceremony-banner .info strong {
+            color: var(--blue-800);
+            display: block;
+            font-size: 14px;
+            margin-bottom: 2px
+        }
+
+        /* ── DONATION PANEL ── */
+        .donate-panel {
+            background: #fff;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            padding: 28px 24px;
+            position: sticky;
+            top: 80px
+        }
+
+        .donate-panel h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--blue-900);
+            margin-bottom: 4px
+        }
+
+        .donate-panel h2 small {
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 14px;
+            display: block;
+            margin-top: 2px
+        }
+
+        .donate-desc {
+            font-size: 12.5px;
+            color: var(--text-secondary);
+            margin: 8px 0 18px;
+            line-height: 1.6
+        }
+
+        .amount-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .6px;
+            color: var(--blue-800);
+            margin-bottom: 10px
+        }
+
+        .amount-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 20px
+        }
+
+        .amt-btn {
+            padding: 14px 8px;
+            border: 2px solid var(--blue-200);
+            border-radius: var(--radius-md);
+            background: #fff;
+            cursor: pointer;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--blue-800);
+            transition: .2s
+        }
+
+        .amt-btn:hover {
+            border-color: var(--blue-400);
+            background: var(--blue-50)
+        }
+
+        .amt-btn.selected {
+            border-color: var(--blue-500);
+            background: var(--blue-500);
+            color: #fff;
+            box-shadow: 0 4px 14px rgba(33, 150, 201, .3)
+        }
+
+        .amt-btn .suggested {
+            display: block;
+            font-size: 9px;
+            font-weight: 500;
+            color: var(--blue-400);
+            margin-top: 2px
+        }
+
+        .amt-btn.selected .suggested {
+            color: rgba(255, 255, 255, .8)
+        }
+
+        .custom-input {
+            display: none;
+            margin: -12px 0 20px;
+            position: relative
+        }
+
+        .custom-input.show {
+            display: block
+        }
+
+        .custom-input input {
+            width: 100%;
+            padding: 12px 14px 12px 50px;
+            border: 2px solid var(--blue-200);
+            border-radius: var(--radius-md);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--blue-800);
+            outline: none;
+            transition: .2s
+        }
+
+        .custom-input input:focus {
+            border-color: var(--blue-500);
+            box-shadow: 0 0 0 3px rgba(33, 150, 201, .12)
+        }
+
+        .custom-input .prefix {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-secondary)
+        }
+
+        .field-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .6px;
+            color: var(--blue-800);
+            margin-bottom: 8px
+        }
+
+        .text-input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid var(--blue-200);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            color: var(--text-primary);
+            outline: none;
+            transition: .2s;
+            margin-bottom: 4px
+        }
+
+        .text-input:focus {
+            border-color: var(--blue-500);
+            box-shadow: 0 0 0 3px rgba(33, 150, 201, .12)
+        }
+
+        .field-hint {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-bottom: 18px
+        }
+
+        .summary-box {
+            background: var(--blue-50);
+            border-radius: var(--radius-md);
+            padding: 16px 18px;
+            margin-bottom: 18px
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 6px
+        }
+
+        .summary-row.waived .val {
+            color: var(--blue-500);
+            font-weight: 500
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 10px;
+            border-top: 2px solid var(--blue-200);
+            margin-top: 8px
+        }
+
+        .summary-total .label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary)
+        }
+
+        .summary-total .val {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--blue-700)
+        }
+
+        .donate-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+            color: #fff;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .3s;
+            box-shadow: 0 4px 16px rgba(33, 150, 201, .35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px
+        }
+
+        .donate-btn:hover {
+            background: linear-gradient(135deg, var(--blue-500), var(--blue-400));
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(33, 150, 201, .4)
+        }
+
+        .donate-btn:active {
+            transform: translateY(0)
+        }
+
+        .payment-icons {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 14px
+        }
+
+        .payment-icons span {
+            font-size: 11px;
+            color: var(--text-secondary);
+            background: var(--blue-50);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 500
+        }
+
+        .secure-note {
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 10px
+        }
+
+        .secure-note i {
+            color: var(--blue-500);
+            margin-right: 4px
+        }
+
+        .tax-info {
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px solid #e8eff4
+        }
+
+        .tax-info h4 {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--blue-800);
+            margin-bottom: 4px
+        }
+
+        .tax-info p {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.5
+        }
+
+        /* ── OTHER MERITS ── */
+        .merits-section {
+            margin-top: 32px
+        }
+
+        .merits-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px
+        }
+
+        .merits-header h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--blue-900)
+        }
+
+        .merits-header h3 small {
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-left: 6px
+        }
+
+        .merits-header a {
+            font-size: 13px;
+            color: var(--blue-500);
+            text-decoration: none;
+            font-weight: 500
+        }
+
+        .merits-header a:hover {
+            text-decoration: underline
+        }
+
+        .merits-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 14px
+        }
+
+        .merit-card {
+            background: #fff;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: .3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit
+        }
+
+        .merit-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md)
+        }
+
+        .merit-card .img {
+            width: 100%;
+            aspect-ratio: 1;
+            overflow: hidden;
+            background: var(--blue-50)
+        }
+
+        .merit-card .img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .3s
+        }
+
+        .merit-card:hover .img img {
+            transform: scale(1.05)
+        }
+
+        .merit-card .info {
+            padding: 10px 12px 14px
+        }
+
+        .merit-card .info h4 {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--blue-800);
+            line-height: 1.4
+        }
+
+        .merit-card .info h4 small {
+            display: block;
+            font-weight: 400;
+            color: var(--text-secondary);
+            font-size: 12px;
+            margin-top: 2px
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            background: linear-gradient(135deg, var(--blue-900), #072d4a);
+            color: rgba(255, 255, 255, .7);
+            text-align: center;
+            padding: 28px 20px;
+            font-size: 12px;
+            margin-top: 40px
+        }
+
+        .footer a {
+            color: var(--blue-300);
+            text-decoration: none
+        }
+
+        /* ========= RESPONSIVE ========= */
+        @media(max-width:900px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 20px
+            }
+
+            .donate-panel {
+                position: static;
+                order: 2
+            }
+
+            .hero-card {
+                order: 1
+            }
+
+            .about-section {
+                order: 3
+            }
+
+            .merits-grid {
+                grid-template-columns: repeat(4, 1fr)
+            }
+
+            .merits-grid .merit-card:nth-child(5) {
+                display: none
+            }
+
+            .nav-links {
+                display: none
+            }
+
+            .mobile-menu-btn {
+                display: block
+            }
+        }
+
+        @media(max-width:600px) {
+            .main-container {
+                padding: 12px 10px 40px
+            }
+
+            .hero-image {
+                height: 240px
+            }
+
+            .hero-title {
+                font-size: 20px
+            }
+
+            .stat-box {
+                padding: 10px 4px
+            }
+
+            .stat-box .num {
+                font-size: 18px
+            }
+
+            .stat-box .label {
+                font-size: 10px
+            }
+
+            .merits-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px
+            }
+
+            .merits-grid .merit-card:nth-child(n+5) {
+                display: none
+            }
+
+            .donate-panel {
+                padding: 20px 16px
+            }
+
+            .about-section .about-text {
+                display: none
+            }
+
+            .about-section .blessing-box {
+                display: none
+            }
+
+            .about-section .ceremony-banner {
+                margin-top: 0
+            }
+
+            .stats-row {
+                display: none
+            }
+
+            .thumb {
+                width: 90px;
+                height: 58px
+            }
+        }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .hero-card,
+        .donate-panel,
+        .merits-section {
+            animation: fadeUp .5s ease-out both
+        }
+
+        .donate-panel {
+            animation-delay: .1s
+        }
+
+        .merits-section {
+            animation-delay: .2s
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <img class="icon" src="images/logo.png" alt="DCS Logo">
+                <div>Dhammakaya Centre Singapore<br><span style="font-size:11px;font-weight:400;opacity:.7">法身寺中心 ·
+                        新加坡</span></div>
+            </a>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Activities</a>
+                <a href="#">Meditation</a>
+                <a href="#" class="active" style="position:relative">Donate ♡</a>
+                <a href="#">My account</a>
+                <div class="nav-lang">
+                    <button class="active">EN</button>
+                    <button>中</button>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" onclick="this.nextElementSibling?.classList.toggle('show')"><i
+                    class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-inner">
+            <a href="#">Home</a> <span>›</span>
+            <a href="#">Online Donation</a> <span>›</span>
+            <a href="#">Monthly Giving</a> <span>›</span>
+            DCS 30-Year Merit Fund
+        </div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main-container">
+        <div class="content-grid">
+            <!-- LEFT COLUMN -->
+            <div>
+                <!-- Hero -->
+                <div class="hero-card">
+                    <div class="hero-image" id="heroImg">
+                        <img src="images/dcs daytime.jpg" alt="DCS Building">
+                        <div class="hero-image-overlay">
+                            <div class="hero-badge">Monthly merit · 每月功德</div>
+                            <div class="hero-title">DCS 30-Year Merit Fund</div>
+                            <div class="hero-subtitle">三十年功德基金 · Supporting DCS lease renewal for 2044 and beyond</div>
+                        </div>
+                    </div>
+
+                    <!-- Thumbnails -->
+                    <div class="thumb-strip">
+                        <div class="thumb active" onclick="changeHero(0,this)">
+                            <img src="images/dcs daytime.jpg" alt="">
+                        </div>
+                        <div class="thumb" onclick="changeHero(1,this)">
+                            <img src="images/dcs at night.jpg" alt="">
+                        </div>
+                        <div class="thumb" onclick="changeHero(2,this)">
+                            <img src="images/dcs first pile.jpg" alt="">
+                        </div>
+                        <div class="thumb" onclick="changeHero(3,this)">
+                            <img src="images/dcs handover day.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="stats-row">
+                        <div class="stat-box">
+                            <div class="num">2014</div>
+                            <div class="label">Land acquired</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="num">2044</div>
+                            <div class="label">Lease renewal</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="num">30 yrs</div>
+                            <div class="label">Next term</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="num">$50</div>
+                            <div class="label">Suggested gift</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About -->
+                <div class="about-section"
+                    style="margin-top:20px;border-radius:var(--radius-lg);box-shadow:var(--shadow-sm)">
+                    <div class="section-title">ABOUT THIS MERIT <small>· 关于此功德</small></div>
+                    <p class="about-text">In 2014, Dhammakaya Centre Singapore purchased the land on which the DCS
+                        building now stands. The lease is valid for 30 years, with renewal due in 2044. With these
+                        facilities, DCS offers meditation, Dhamma talks, and programs for children, youth, and adults
+                        from all walks of life.</p>
+
+                    <div class="quote-box">
+                        "Your contributions are integral to our mission and will enable DCS to renew the lease for the
+                        next thirty years. Your support will bring hope and prosperity to many."
+                    </div>
+
+                    <div class="blessing-box">
+                        <li>Donors will be blessed with good health, wealth and prosperity in every lifetime until the
+                            Ultimate Nibbana</li>
+                        <li>Your generosity sustains free teachings, meditation programs, and community events for
+                            decades to come</li>
+                    </div>
+
+                    <div class="ceremony-banner">
+                        <div class="lantern">🏮</div>
+                        <div class="info">
+                            <strong>Special robe offering ceremony · 献袈裟法会</strong>
+                            Donors are warmly invited on the 1st Sunday of every month at 2:15 PM<br>
+                            <span style="font-size:12px;color:var(--text-secondary)">每月第一个星期日下午 2:15
+                                举行特别仪式，欢迎捐款者参加</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: DONATE PANEL -->
+            <div class="donate-panel">
+                <h2>Make your donation <small>进行布施</small></h2>
+                <p class="donate-desc">All amounts in Singapore Dollars (SGD). Your contribution goes directly to
+                    supporting DCS's mission.</p>
+
+                <div class="amount-label">Select Amount · 选择金额</div>
+                <div class="amount-grid">
+                    <button class="amt-btn" onclick="selectAmt(20,this)">$20</button>
+                    <button class="amt-btn selected" onclick="selectAmt(50,this)">$50<span
+                            class="suggested">Suggested</span></button>
+                    <button class="amt-btn" onclick="selectAmt(100,this)">$100</button>
+                    <button class="amt-btn" onclick="selectAmt(200,this)">$200</button>
+                    <button class="amt-btn" onclick="selectAmt(500,this)">$500</button>
+                    <button class="amt-btn" onclick="selectAmt(-1,this)">Other</button>
+                </div>
+                <div class="custom-input" id="customInput">
+                    <span class="prefix">SGD $</span>
+                    <input type="number" placeholder="Enter amount" min="1" oninput="updateCustom(this.value)">
+                </div>
+
+                <div class="field-label">Donor Name · 捐款者姓名</div>
+                <input type="text" class="text-input" placeholder="Your name in English or Chinese">
+                <div class="field-hint">For more than one name, separate by comma · 多位名字请用逗号分开</div>
+
+                <div class="summary-box">
+                    <div class="summary-row"><span>Donation</span><span id="donationAmt">SGD $50.00</span></div>
+                    <div class="summary-row waived"><span>Processing fee</span><span class="val">Waived</span></div>
+                    <div class="summary-total">
+                        <span class="label">Total</span>
+                        <span class="val" id="totalAmt">SGD $50</span>
+                    </div>
+                </div>
+
+                <button class="donate-btn"
+                    onclick="alert('Thank you for your generous donation! 🙏\nSadhu Sadhu Sadhu!')">
+                    <i class="fas fa-heart"></i> Donate now · 立即布施
+                </button>
+
+                <div class="payment-icons">
+                    <span>PayNow</span><span>Visa</span><span>Mastercard</span><span>Amex</span>
+                </div>
+                <div class="secure-note"><i class="fas fa-lock"></i> Secured payment · 安全支付</div>
+
+                <div class="tax-info">
+                    <h4>Is my donation tax deductible?</h4>
+                    <p>Dhammakaya Centre Singapore is a registered charity. Please contact us for tax deduction queries.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- OTHER MERITS -->
+        <div class="merits-section">
+            <div class="merits-header">
+                <h3>You might also like <small>· 其他功德</small></h3>
+                <a href="#">View all merits →</a>
+            </div>
+            <div class="merits-grid">
+                <a class="merit-card" href="#">
+                    <div class="img"><img src="images/offer budha.jpg" alt=""></div>
+                    <div class="info">
+                        <h4>Offering to Buddha<small>供佛</small></h4>
+                    </div>
+                </a>
+                <a class="merit-card" href="#">
+                    <div class="img"><img src="images/light offering to buddha.jpg" alt=""></div>
+                    <div class="info">
+                        <h4>Light Offering to Buddha<small>供灯</small></h4>
+                    </div>
+                </a>
+                <a class="merit-card" href="#">
+                    <div class="img"><img src="images/alms offering.jpg" alt=""></div>
+                    <div class="info">
+                        <h4>Alms Offering<small>供僧</small></h4>
+                    </div>
+                </a>
+                <a class="merit-card" href="#">
+                    <div class="img"><img src="images/medical fund.jpg" alt=""></div>
+                    <div class="info">
+                        <h4>Offer Medical Fund<small>供僧医疗基金</small></h4>
+                    </div>
+                </a>
+                <a class="merit-card" href="#">
+                    <div class="img"><img src="images/wealth prosperity.jpg" alt=""></div>
+                    <div class="info">
+                        <h4>Wealth & Prosperity<small>财富与繁荣</small></h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        © 2026 Dhammakaya Centre Singapore · <a href="#">Privacy Policy</a> · <a href="#">Contact Us</a>
+    </div>
+
+    <script>
+        const heroImages = [
+            'images/dcs daytime.jpg',
+            'images/dcs at night.jpg',
+            'images/dcs first pile.jpg',
+            'images/dcs handover day.jpg'
+        ];
+        let currentAmt = 50;
+
+        function changeHero(i, el) {
+            document.querySelector('#heroImg img').src = heroImages[i];
+            document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+            el.classList.add('active');
+        }
+
+        function selectAmt(v, el) {
+            document.querySelectorAll('.amt-btn').forEach(b => b.classList.remove('selected'));
+            el.classList.add('selected');
+            const ci = document.getElementById('customInput');
+            if (v === -1) { ci.classList.add('show'); return }
+            ci.classList.remove('show');
+            currentAmt = v;
+            updateDisplay();
+        }
+
+        function updateCustom(v) {
+            currentAmt = parseFloat(v) || 0;
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            document.getElementById('donationAmt').textContent = 'SGD $' + currentAmt.toFixed(2);
+            document.getElementById('totalAmt').textContent = 'SGD $' + currentAmt;
+        }
+    </script>
+</body>
+
+</html>

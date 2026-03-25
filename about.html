@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us · Dhammakaya Centre Singapore</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* ══════ ABOUT PAGE SPECIFIC ══════ */
+
+        /* Hero */
+        .about-hero {
+            position: relative;
+            height: 420px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .about-hero img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .about-hero .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(10, 61, 98, .6), rgba(10, 61, 98, .25))
+        }
+
+        .about-hero .hero-text {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #fff;
+            padding: 0 24px
+        }
+
+        .about-hero .hero-text h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, .3)
+        }
+
+        .about-hero .hero-text p {
+            font-size: 18px;
+            opacity: .9;
+            max-width: 550px;
+            margin: 0 auto
+        }
+
+        /* Mission */
+        .mission {
+            background: #f7f7f7;
+            text-align: center
+        }
+
+        .mission-quote {
+            font-size: 26px;
+            font-weight: 300;
+            color: var(--blue-900);
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto 20px;
+            font-style: italic
+        }
+
+        .mission-sub {
+            font-size: 15px;
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.8
+        }
+
+        /* Story */
+        .story {
+            background: var(--blue-50)
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center
+        }
+
+        .story-img {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg)
+        }
+
+        .story-img img {
+            width: 100%;
+            display: block
+        }
+
+        .story-text h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--blue-900);
+            margin-bottom: 16px
+        }
+
+        .story-text h2 small {
+            display: block;
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-top: 4px
+        }
+
+        .story-text p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 16px
+        }
+
+        /* Timeline */
+        .timeline-section {
+            background: #fff
+        }
+
+        .timeline {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            padding-left: 40px
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--blue-200);
+            border-radius: 2px
+        }
+
+        .tl-item {
+            position: relative;
+            margin-bottom: 32px
+        }
+
+        .tl-item:last-child {
+            margin-bottom: 0
+        }
+
+        .tl-dot {
+            position: absolute;
+            left: -33px;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--blue-500);
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 3px var(--blue-200)
+        }
+
+        .tl-year {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--blue-700);
+            margin-bottom: 4px
+        }
+
+        .tl-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7
+        }
+
+        /* Building Tour */
+        .building-section {
+            background: var(--blue-50)
+        }
+
+        .building-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px
+        }
+
+        .building-card {
+            background: #fff;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: .3s
+        }
+
+        .building-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md)
+        }
+
+        .building-card .bc-icon {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px
+        }
+
+        .bc-blue {
+            background: linear-gradient(135deg, var(--blue-100), var(--blue-200))
+        }
+
+        .bc-gold {
+            background: linear-gradient(135deg, #fef3e0, #fde8c8)
+        }
+
+        .bc-green {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9)
+        }
+
+        .bc-warm {
+            background: linear-gradient(135deg, var(--warm-50), #fef6e4)
+        }
+
+        .bc-purple {
+            background: linear-gradient(135deg, #f3e5f5, #e1bee7)
+        }
+
+        .bc-teal {
+            background: linear-gradient(135deg, #e0f2f1, #b2dfdb)
+        }
+
+        .building-card .bc-body {
+            padding: 18px 16px
+        }
+
+        .building-card h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--blue-900);
+            margin-bottom: 2px
+        }
+
+        .building-card h3 small {
+            display: block;
+            font-weight: 400;
+            color: var(--text-secondary);
+            font-size: 12px;
+            margin-top: 2px
+        }
+
+        .building-card .bc-meta {
+            font-size: 12px;
+            color: var(--blue-500);
+            margin-bottom: 6px;
+            font-weight: 500
+        }
+
+        .building-card p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6
+        }
+
+        /* What We Do */
+        .whatwedo {
+            background: #fff
+        }
+
+        .wwd-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px
+        }
+
+        .wwd-card {
+            padding: 32px 24px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            transition: .3s;
+            border: 1px solid #e8eff4
+        }
+
+        .wwd-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md)
+        }
+
+        .wwd-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            margin: 0 auto 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            background: linear-gradient(135deg, var(--blue-100), var(--blue-200));
+            color: var(--blue-700)
+        }
+
+        .wwd-card h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--blue-900);
+            margin-bottom: 10px
+        }
+
+        .wwd-card p {
+            font-size: 13.5px;
+            color: var(--text-secondary);
+            line-height: 1.7
+        }
+
+        /* YouTube */
+        .youtube-section {
+            background: var(--blue-50)
+        }
+
+        .yt-wrapper {
+            max-width: 1160px;
+            margin: 0 auto
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg)
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0
+        }
+
+        /* Responsive */
+        @media(max-width:900px) {
+            .story-grid {
+                grid-template-columns: 1fr
+            }
+
+            .story-img {
+                max-height: 300px;
+                overflow: hidden
+            }
+
+            .building-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .wwd-grid {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media(max-width:600px) {
+            .about-hero {
+                height: 260px
+            }
+
+            .about-hero .hero-text h1 {
+                font-size: 24px
+            }
+
+            .about-hero .hero-text p {
+                font-size: 14px
+            }
+
+            .mission-quote {
+                font-size: 19px
+            }
+
+            .building-grid {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .wwd-grid {
+                grid-template-columns: 1fr
+            }
+
+            .story-text h2 {
+                font-size: 22px
+            }
+
+            .tl-year {
+                font-size: 18px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ══════ NAV ══════ -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img class="icon" src="images/logo.png" alt="DCS Logo">
+                <div>Dhammakaya Centre Singapore<br><span style="font-size:11px;font-weight:400;opacity:.7">法身寺中心 ·
+                        新加坡</span></div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="activities.html">Activities</a>
+                <a href="meditation.html">Meditation</a>
+                <a href="#" class="account-link"><i class="fas fa-user-circle"></i> Login</a>
+                <a href="online-donations.html" class="donate-link">Online Donation ♡</a>
+                <div class="nav-lang">
+                    <button class="active">EN</button>
+                    <button>中</button>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="activities.html">Activities</a>
+        <a href="meditation.html" class="active">Meditation</a>
+        <a href="#"><i class="fas fa-user-circle"></i> Login</a>
+        <a href="online-donations.html">Online Donation ♡</a>
+    </div>
+
+    <!-- ══════ HERO ══════ -->
+    <section class="hero">
+        <div class="hero-img-wrap">
+            <img src="images/dcs building.png" alt="About Dhammakaya Centre Singapore">
+        </div>
+    </section>
+
+
+
+    <!-- ══════ MISSION ══════ -->
+    <section class="section mission">
+        <div class="section-inner">
+            <div class="mission-quote">"World Peace Comes from Inner Peace"</div>
+            <p class="mission-sub">In Singapore, a land filled with vigour and vitality, there is a group of people
+                carrying out the quintessential pursuits of life. Through meditation, they have found inner peace and
+                true happiness for themselves, their families, and the society in which they reside. When they close
+                their eyes gently, they generate a course of pure spiritual energy that subtly evolves into a great
+                force that makes the world a better and more peaceful place.</p>
+        </div>
+    </section>
+
+    <!-- ══════ OUR STORY ══════ -->
+    <section class="section story">
+        <div class="section-inner">
+            <div class="story-grid">
+                <div class="story-img">
+                    <img src="images/dcs daytime.jpg" alt="DCS Building">
+                </div>
+                <div class="story-text">
+                    <h2>Our Story <small>我们的故事</small></h2>
+                    <p>For over 20 years, Dhammakaya Centre (Singapore) has been actively sharing the practice of
+                        meditation suitable for everyday life — welcoming everyone irrespective of age, race, or
+                        religion.</p>
+                    <p>Over the years, our centre has experienced remarkable growth in participants and activities. Due
+                        to space constraints at our previous rented premises, establishing a permanent home became our
+                        top priority.</p>
+                    <p>In 2013, the land at 6 Sumang Walk, Punggol was awarded to DCS. After years of planning and
+                        construction, our purpose-built 5-storey centre was completed in 2017 — designed with a facade
+                        that resembles two palms placed together, a Buddhist gesture of respect, welcoming kind souls
+                        from all walks of life.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ TIMELINE ══════ -->
+    <section class="section timeline-section">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>Our Journey <small>建筑过程简要</small></h2>
+            </div>
+            <div class="timeline">
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-year">2013</div>
+                    <div class="tl-desc">Land tender submitted and awarded to DCS at 6 Sumang Walk, Punggol
+                        (828675).<br>投标榜鹅区苏芒径的土地，新加坡法身寺正式标得土地。</div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-year">2014</div>
+                    <div class="tl-desc">Appointment of Architect &amp; Engineer. Hand over of land by HDB. Purification
+                        of Land Ceremony presided by the Most Venerable Phraphromdilok.<br>正式委任建筑师。从建屋发展局承接土地。净化土地祈福法会。
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-year">2015</div>
+                    <div class="tl-desc">Driving of the 1st Symbolic Foundation Pile ceremony. Main tender call
+                        opened.<br>第一根地基柱奠基仪式。开放招标。</div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-year">2016</div>
+                    <div class="tl-desc">Builder appointed and permit to carry out work granted. Construction
+                        begins.<br>正式委任建筑发展商。获批建筑工作准证。</div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-year">2017</div>
+                    <div class="tl-desc">Building completed. Temporary Occupation Permit (TOP) received. DCS moves into
+                        its permanent home.<br>建筑竣工。领取临时入伙证。法身寺正式迁入永久道场。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ OUR BUILDING ══════ -->
+    <section class="section building-section">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>Our Centre <small>我们的道场</small></h2>
+                <p>A purpose-built 5-storey centre designed with cost-effective materials, minimal maintenance, and a
+                    simple, spacious interior for spiritual practice.</p>
+            </div>
+            <div class="building-grid">
+                <div class="building-card">
+                    <div class="bc-icon bc-gold">🙏</div>
+                    <div class="bc-body">
+                        <h3>Main Hall <small>大堂</small></h3>
+                        <div class="bc-meta">Level 1 · 300 m²</div>
+                        <p>The Main Buddha Shrine gracefully welcomes every visitor. Features a 4-metre ceiling and
+                            natural marble floor.</p>
+                    </div>
+                </div>
+                <div class="building-card">
+                    <div class="bc-icon bc-blue">🧘</div>
+                    <div class="bc-body">
+                        <h3>Dhammachai Meditation Hall <small>法胜大禅堂</small></h3>
+                        <div class="bc-meta">Level 2 · 503 m² · 450 pax</div>
+                        <p>A magnificent and tranquil hall for meditation practice and large-scale ceremonies.</p>
+                    </div>
+                </div>
+                <div class="building-card">
+                    <div class="bc-icon bc-green">📚</div>
+                    <div class="bc-body">
+                        <h3>Majjhima-patipada Room <small>中道禅修室</small></h3>
+                        <div class="bc-meta">Level 3 · 36 m² · 30 pax</div>
+                        <p>A soundproof oasis of serenity for personal retreat and spiritual relaxation during the day.
+                        </p>
+                    </div>
+                </div>
+                <div class="building-card">
+                    <div class="bc-icon bc-warm">🎓</div>
+                    <div class="bc-body">
+                        <h3>Multipurpose Classroom <small>多用途课室</small></h3>
+                        <div class="bc-meta">Level 3 · 124 m² · 90 pax</div>
+                        <p>Versatile space with operable walls for children activities, youth camps, and enrichment
+                            courses.</p>
+                    </div>
+                </div>
+                <div class="building-card">
+                    <div class="bc-icon bc-purple">📖</div>
+                    <div class="bc-body">
+                        <h3>Tipitaka Library <small>藏经阁兼多媒体资料室</small></h3>
+                        <div class="bc-meta">Level 4 · 65 m²</div>
+                        <p>Home to the teachings preserved in the Pāli Canon, supplemented with multimedia resources for
+                            learning.</p>
+                    </div>
+                </div>
+                <div class="building-card">
+                    <div class="bc-icon bc-teal">☸️</div>
+                    <div class="bc-body">
+                        <h3>Sangha Meditation Room <small>僧宝禅堂</small></h3>
+                        <div class="bc-meta">Level 5 · 96 m²</div>
+                        <p>Dedicated space for the Sangha — the monks who devote their lives to studying scriptures and
+                            practicing meditation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ WHAT WE DO ══════ -->
+    <section class="section whatwedo">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>What We Do <small>我们的服务</small></h2>
+            </div>
+            <div class="wwd-grid">
+                <div class="wwd-card">
+                    <div class="wwd-icon"><i class="fas fa-spa"></i></div>
+                    <h3>Meditation Classes</h3>
+                    <p>Regular introductory and advanced sessions suitable for all ages and experience levels. Cultivate
+                        mindfulness, clarity, and inner peace.</p>
+                </div>
+                <div class="wwd-card">
+                    <div class="wwd-icon" style="background:linear-gradient(135deg,#fef3e0,#fde8c8);color:#b8860b"><i
+                            class="fas fa-child"></i></div>
+                    <h3>5 Universal Goodness</h3>
+                    <p>Youth programs teaching Cleanliness, Orderliness, Politeness, Punctuality, and Meditation —
+                        nurturing good values from an early age.</p>
+                </div>
+                <div class="wwd-card">
+                    <div class="wwd-icon" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);color:#2e7d32"><i
+                            class="fas fa-heart"></i></div>
+                    <h3>Sharing Happiness Project</h3>
+                    <p>Community outreach donating food and necessities to nursing home residents, spreading joy and
+                        kindness throughout Singapore.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ YOUTUBE ══════ -->
+    <section class="section youtube-section">
+        <div class="section-inner">
+            <div class="yt-wrapper">
+                <div class="video-container">
+                    <iframe title="YouTube video player" src="https://www.youtube-nocookie.com/embed/PAxq7nRQrbc"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ FOOTER ══════ -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div>
+                <h4>Dhammakaya Centre Singapore</h4>
+                <p>A sanctuary for mindfulness and spiritual growth in the heart of Singapore. Open to all, regardless
+                    of background or experience.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="activities.html">Activities</a>
+                <a href="online-donations.html">Online Donation</a>
+            </div>
+            <div class="footer-links">
+                <h4>Programs</h4>
+                <a href="meditation.html">Basic Meditation</a>
+                <a href="#">Children's Class</a>
+                <a href="#">Dhamma Talks</a>
+                <a href="#">Volunteering</a>
+            </div>
+            <div class="footer-links">
+                <h4>Support</h4>
+                <a href="#">Contact Us</a>
+                <a href="#">FAQ</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">My Account</a>
+            </div>
+        </div>
+        <div class="footer-mobile-only">
+            <div class="footer-links-mobile">
+                <div>
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="activities.html">Activities</a>
+                    <a href="online-donations.html">Donation</a>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <a href="#">Contact Us</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">My Account</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 Dhammakaya Centre Singapore. All rights reserved.</div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

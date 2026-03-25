@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities · Dhammakaya Centre Singapore</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* ══════ ACTIVITIES PAGE SPECIFIC ══════ */
+
+        /* Category tabs */
+        .cat-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap
+        }
+
+        .cat-tab {
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 2px solid var(--blue-200);
+            background: #fff;
+            color: var(--blue-800);
+            transition: .3s;
+            text-decoration: none
+        }
+
+        .cat-tab:hover {
+            border-color: var(--blue-400);
+            background: var(--blue-50)
+        }
+
+        .cat-tab.active {
+            background: var(--blue-500);
+            color: #fff;
+            border-color: var(--blue-500)
+        }
+
+        /* Activity cards grid */
+        .act-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px
+        }
+
+        .act-card {
+            background: #fff;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: .3s;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid #e8eff4
+        }
+
+        .act-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg)
+        }
+
+        .act-card .card-img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            position: relative
+        }
+
+        .act-card .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .4s
+        }
+
+        .act-card:hover .card-img img {
+            transform: scale(1.06)
+        }
+
+        .act-card .card-cat {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            z-index: 1
+        }
+
+        .cat-ceremony {
+            background: var(--gold-500);
+            color: #fff
+        }
+
+        .cat-meditation {
+            background: var(--blue-500);
+            color: #fff
+        }
+
+        .cat-community {
+            background: #2e7d32;
+            color: #fff
+        }
+
+        .cat-learning {
+            background: #7b1fa2;
+            color: #fff
+        }
+
+        .act-card .card-body {
+            padding: 18px 16px
+        }
+
+        .act-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--blue-900);
+            margin-bottom: 4px;
+            line-height: 1.4
+        }
+
+        .act-card h3 small {
+            display: block;
+            font-weight: 400;
+            color: var(--text-secondary);
+            font-size: 12px;
+            margin-top: 3px
+        }
+
+        .act-card .card-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-top: 8px
+        }
+
+        .act-card .card-schedule {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 12px;
+            font-size: 12px;
+            color: var(--blue-600);
+            font-weight: 500
+        }
+
+        .act-card .card-schedule i {
+            font-size: 11px
+        }
+
+        /* Schedule overview */
+        .schedule-section {
+            background: var(--blue-50)
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px
+        }
+
+        .sched-card {
+            background: #fff;
+            border-radius: var(--radius-md);
+            padding: 20px 18px;
+            text-align: center;
+            box-shadow: var(--shadow-sm)
+        }
+
+        .sched-card .sched-day {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--blue-500);
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            margin-bottom: 6px
+        }
+
+        .sched-card h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--blue-900);
+            margin-bottom: 4px
+        }
+
+        .sched-card p {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.5
+        }
+
+        /* CTA */
+        .act-cta {
+            background: linear-gradient(135deg, var(--blue-900), var(--blue-700));
+            color: #fff;
+            text-align: center
+        }
+
+        .act-cta h2 {
+            color: #fff;
+            font-size: 28px;
+            margin-bottom: 12px
+        }
+
+        .act-cta p {
+            color: rgba(255, 255, 255, .85);
+            font-size: 16px;
+            max-width: 550px;
+            margin: 0 auto 28px;
+            line-height: 1.7
+        }
+
+        /* Responsive */
+        @media(max-width:900px) {
+            .act-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .schedule-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media(max-width:600px) {
+            .act-hero {
+                height: 260px
+            }
+
+            .act-hero .hero-text h1 {
+                font-size: 26px
+            }
+
+            .act-hero .hero-text p {
+                font-size: 14px
+            }
+
+            .act-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 14px
+            }
+
+            .act-card h3 {
+                font-size: 14px
+            }
+
+            .act-card .card-desc {
+                display: none
+            }
+
+            .schedule-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ══════ NAV ══════ -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img class="icon" src="images/logo.png" alt="DCS Logo">
+                <div>Dhammakaya Centre Singapore<br><span style="font-size:11px;font-weight:400;opacity:.7">法身寺中心 ·
+                        新加坡</span></div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="activities.html" class="active">Activities</a>
+                <a href="meditation.html">Meditation</a>
+                <a href="#" class="account-link"><i class="fas fa-user-circle"></i> Login</a>
+                <a href="online-donations.html" class="donate-link">Online Donation ♡</a>
+                <div class="nav-lang">
+                    <button class="active">EN</button>
+                    <button>中</button>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="activities.html">Activities</a>
+        <a href="meditation.html" class="active">Meditation</a>
+        <a href="#"><i class="fas fa-user-circle"></i> Login</a>
+        <a href="online-donations.html">Online Donation ♡</a>
+    </div>
+
+    <!-- ══════ HERO ══════ -->
+    <section class="hero">
+        <div class="hero-img-wrap">
+            <img src="images/dcs building.png" alt="Activities at DCS">
+        </div>
+    </section>
+
+    <!-- ══════ FILTER TABS ══════ -->
+    <section class="section" style="background:#f7f7f7;padding-bottom:0">
+        <div class="section-inner">
+            <div class="cat-tabs">
+                <a class="cat-tab active" onclick="filterCards('all',this)">All Activities</a>
+                <a class="cat-tab" onclick="filterCards('ceremony',this)">Ceremonies</a>
+                <a class="cat-tab" onclick="filterCards('meditation',this)">Meditation</a>
+                <a class="cat-tab" onclick="filterCards('learning',this)">Learning</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ ACTIVITIES GRID ══════ -->
+    <section class="section" style="background:#f7f7f7;padding-top:32px">
+        <div class="section-inner">
+            <div class="act-grid" id="actGrid">
+
+                <!-- 1. Offering to Buddha -->
+                <a class="act-card" href="#" data-cat="ceremony">
+                    <div class="card-img">
+                        <span class="card-cat cat-ceremony">Ceremony</span>
+                        <img src="images/offer budha.jpg" alt="Offering to Buddha">
+                    </div>
+                    <div class="card-body">
+                        <h3>Offering to Buddha<small>供佛</small></h3>
+                        <p class="card-desc">Join us in this meritorious ceremony of offering flowers, fruits, food and
+                            sweets to countless Buddhas.</p>
+                        <div class="card-schedule"><i class="fas fa-calendar-alt"></i> 1st Sunday of every month</div>
+                    </div>
+                </a>
+
+                <!-- 2. Alms Offering -->
+                <a class="act-card" href="#" data-cat="ceremony">
+                    <div class="card-img">
+                        <span class="card-cat cat-ceremony">Ceremony</span>
+                        <img src="images/alms offering.jpg" alt="Alms Offering">
+                    </div>
+                    <div class="card-body">
+                        <h3>Alms Offering<small>供僧</small></h3>
+                        <p class="card-desc">Support the monastic community and participate in an ancient, meaningful
+                            Buddhist tradition of offering requisites to the Sangha.</p>
+                        <div class="card-schedule"><i class="fas fa-calendar-alt"></i> 4th Sunday of every month</div>
+                    </div>
+                </a>
+
+                <!-- 3. Celebrate Birth Month -->
+                <a class="act-card" href="#" data-cat="ceremony">
+                    <div class="card-img">
+                        <span class="card-cat cat-ceremony">Ceremony</span>
+                        <img src="images/light offering to buddha.jpg" alt="Celebrate Birth Month">
+                    </div>
+                    <div class="card-body">
+                        <h3>Celebrate Birth Month<small>庆生月</small></h3>
+                        <p class="card-desc">A special monthly event for anyone born in the same birth month to come and
+                            perform meritorious deeds together.</p>
+                        <div class="card-schedule"><i class="fas fa-calendar-alt"></i> 3rd Sunday of every month</div>
+                    </div>
+                </a>
+
+                <!-- 4. Transference of Merits -->
+                <a class="act-card" href="transfer of merit.html" data-cat="ceremony">
+                    <div class="card-img">
+                        <span class="card-cat cat-ceremony">Ceremony</span>
+                        <img src="images/donation_home.jpg" alt="Transference of Merits">
+                    </div>
+                    <div class="card-body">
+                        <h3>Transference of Merits<small>回向功德</small></h3>
+                        <p class="card-desc">Calm our mind, perform meritorious deeds and transfer our merits to our
+                            departed loved ones in this monthly ceremony.</p>
+                        <div class="card-schedule"><i class="fas fa-calendar-alt"></i> 2nd Sunday of every month</div>
+                    </div>
+                </a>
+
+                <!-- 5. Basic Meditation Course -->
+                <a class="act-card" href="#" data-cat="meditation">
+                    <div class="card-img">
+                        <span class="card-cat cat-meditation">Meditation</span>
+                        <img src="images/bmc_home.jpg" alt="Basic Meditation Course">
+                    </div>
+                    <div class="card-body">
+                        <h3>Basic Meditation Course<small>初级静坐班</small></h3>
+                        <p class="card-desc">Are you new to meditation and wish to learn how to meditate? If your answer
+                            is "yes", this free 12-session course is for you!</p>
+                        <div class="card-schedule"><i class="fas fa-calendar-alt"></i> New intake every quarter</div>
+                    </div>
+                </a>
+
+                <!-- 6. Children's Dhamma Class -->
+                <a class="act-card" href="#" data-cat="learning">
+                    <div class="card-img">
+                        <span class="card-cat cat-learning">Learning</span>
+                        <img src="images/children class_home.jpg" alt="Children's Dhamma Class">
+                    </div>
+                    <div class="card-body">
+                        <h3>Children's Dhamma Class<small>儿童佛学班</small></h3>
+                        <p class="card-desc">Enrol your child in our once-a-month class to cultivate good habits and
+                            learn moral values through fun and meaningful activities.</p>
+                        <div class="card-schedule"><i class="fas fa-calendar-alt"></i> Once a month (Saturday)</div>
+                    </div>
+                </a>
+
+                <!-- 7. Friday Chanting -->
+                <a class="act-card" href="#" data-cat="meditation">
+                    <div class="card-img">
+                        <span class="card-cat cat-meditation">Meditation</span>
+                        <img src="images/stayhome meditation.jpg" alt="Friday Chanting">
+                    </div>
+                    <div class="card-body">
+                        <h3>Friday Chanting<small>星期五诵经</small></h3>
+                        <p class="card-desc">End the week with peace and positivity through the beautiful Buddhist
+                            tradition of chanting and meditation every Friday evening.</p>
+                        <div class="card-schedule"><i class="fas fa-calendar-alt"></i> Every Friday evening</div>
+                    </div>
+                </a>
+
+                <!-- 8. Dhamma Study -->
+                <a class="act-card" href="#" data-cat="learning">
+                    <div class="card-img">
+                        <span class="card-cat cat-learning">Learning</span>
+                        <img src="images/dcs meditation_home.jpg" alt="Dhamma Study">
+                    </div>
+                    <div class="card-body">
+                        <h3>Dhamma Study<small>佛法学习</small></h3>
+                        <p class="card-desc">Deepen your understanding of Buddhist teachings through guided study
+                            sessions covering the Dhamma and its practical applications in daily life.</p>
+                        <div class="card-schedule"><i class="fas fa-calendar-alt"></i> Weekly sessions</div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ WEEKLY SCHEDULE ══════ -->
+    <section class="section schedule-section">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>Weekly Schedule <small>每周活动时间表</small></h2>
+                <p>Plan your visit with our regular weekly activities.</p>
+            </div>
+            <div class="schedule-grid">
+                <div class="sched-card">
+                    <div class="sched-day">Sunday</div>
+                    <h4>Monthly Ceremonies</h4>
+                    <p>Offering to Buddha, Alms Offering, Birth Month Celebration, or Transference of Merits (rotates
+                        weekly)</p>
+                </div>
+                <div class="sched-card">
+                    <div class="sched-day">Tuesday – Thursday</div>
+                    <h4>Meditation & Study</h4>
+                    <p>Basic Meditation Course and Dhamma Study sessions in the evening</p>
+                </div>
+                <div class="sched-card">
+                    <div class="sched-day">Friday</div>
+                    <h4>Friday Chanting</h4>
+                    <p>Weekly chanting and meditation to end the week with peace and positivity</p>
+                </div>
+                <div class="sched-card">
+                    <div class="sched-day">Saturday</div>
+                    <h4>Children's Class</h4>
+                    <p>Monthly children's Dhamma class with fun activities and moral values</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ CTA ══════ -->
+    <section class="section act-cta">
+        <div class="section-inner">
+            <h2>Join Us This Week</h2>
+            <p>All activities are free and open to everyone. No registration needed for most events — just show up with
+                an open heart.</p>
+            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+                <a href="meditation.html" class="btn btn-primary"><i class="fas fa-om"></i> Start Meditation</a>
+                <a href="online-donations.html" class="btn btn-outline"><i class="fas fa-heart"></i> Support Our
+                    Activities</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ FOOTER ══════ -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div>
+                <h4>Dhammakaya Centre Singapore</h4>
+                <p>A sanctuary for mindfulness and spiritual growth in the heart of Singapore. Open to all, regardless
+                    of background or experience.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="activities.html">Activities</a>
+                <a href="online-donations.html">Online Donation</a>
+            </div>
+            <div class="footer-links">
+                <h4>Programs</h4>
+                <a href="meditation.html">Basic Meditation</a>
+                <a href="#">Children's Class</a>
+                <a href="#">Dhamma Talks</a>
+                <a href="#">Volunteering</a>
+            </div>
+            <div class="footer-links">
+                <h4>Support</h4>
+                <a href="#">Contact Us</a>
+                <a href="#">FAQ</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">My Account</a>
+            </div>
+        </div>
+        <div class="footer-mobile-only">
+            <div class="footer-links-mobile">
+                <div>
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="activities.html">Activities</a>
+                    <a href="donation.html">Donation</a>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <a href="#">Contact Us</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">My Account</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 Dhammakaya Centre Singapore. All rights reserved.</div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        /* Filter activities by category */
+        function filterCards(cat, el) {
+            document.querySelectorAll('.cat-tab').forEach(function (t) { t.classList.remove('active'); });
+            el.classList.add('active');
+            document.querySelectorAll('.act-card').forEach(function (card) {
+                if (cat === 'all' || card.dataset.cat === cat) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

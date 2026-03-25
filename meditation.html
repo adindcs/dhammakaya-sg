@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Meditation Course · Dhammakaya Centre Singapore</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* ══════ MEDITATION PAGE SPECIFIC ══════ */
+
+        /* Intro section */
+        .med-intro {
+            background: #f7f7f7
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center
+        }
+
+        .intro-img {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg)
+        }
+
+        .intro-img img {
+            width: 100%;
+            display: block
+        }
+
+        .intro-text h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--blue-900);
+            margin-bottom: 16px
+        }
+
+        .intro-text h2 small {
+            display: block;
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-top: 4px
+        }
+
+        .intro-text p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 14px
+        }
+
+        .intro-text .highlight {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--blue-700);
+            font-style: italic
+        }
+
+        /* Course details */
+        .course-details {
+            background: var(--blue-50)
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px
+        }
+
+        .detail-card {
+            background: #fff;
+            border-radius: var(--radius-lg);
+            padding: 28px 20px;
+            text-align: center;
+            box-shadow: var(--shadow-sm)
+        }
+
+        .detail-card .d-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            margin: 0 auto 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            background: linear-gradient(135deg, var(--blue-100), var(--blue-200));
+            color: var(--blue-700)
+        }
+
+        .detail-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--blue-900);
+            margin-bottom: 4px
+        }
+
+        .detail-card p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5
+        }
+
+        /* Benefits */
+        .benefits {
+            background: #fff
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px
+        }
+
+        .benefit-item {
+            padding: 24px 20px;
+            border-radius: var(--radius-lg);
+            border: 1px solid #e8eff4;
+            text-align: center;
+            transition: .3s
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md)
+        }
+
+        .benefit-item .b-icon {
+            font-size: 32px;
+            margin-bottom: 12px
+        }
+
+        .benefit-item h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--blue-900);
+            margin-bottom: 6px
+        }
+
+        .benefit-item p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6
+        }
+
+        /* Quote section */
+        .med-quote {
+            background: linear-gradient(135deg, var(--blue-900), var(--blue-700));
+            color: #fff;
+            text-align: center
+        }
+
+        .med-quote blockquote {
+            font-size: 20px;
+            font-weight: 300;
+            line-height: 1.7;
+            max-width: 750px;
+            margin: 0 auto 16px;
+            font-style: italic;
+            opacity: .95
+        }
+
+        .med-quote .quote-cn {
+            font-size: 16px;
+            opacity: .8;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8
+        }
+
+        /* Register CTA */
+        .register-cta {
+            background: linear-gradient(135deg, var(--warm-50), #fef6e4);
+            text-align: center
+        }
+
+        .register-cta h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--blue-900);
+            margin-bottom: 8px
+        }
+
+        .register-cta h2 small {
+            display: block;
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-top: 4px
+        }
+
+        .register-cta p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 12px;
+            line-height: 1.7
+        }
+
+        .register-cta .contact-info-line {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 16px 0 24px
+        }
+
+        .register-cta .contact-info-line strong {
+            color: var(--blue-800)
+        }
+
+        /* Responsive */
+        @media(max-width:900px) {
+            .intro-grid {
+                grid-template-columns: 1fr
+            }
+
+            .intro-img {
+                max-height: 300px;
+                overflow: hidden
+            }
+
+            .details-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media(max-width:600px) {
+            .med-hero {
+                height: 300px
+            }
+
+            .med-hero .hero-text h1 {
+                font-size: 26px
+            }
+
+            .med-hero .hero-text h1 span {
+                font-size: 16px
+            }
+
+            .med-hero .hero-text p {
+                font-size: 14px
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr
+            }
+
+            .med-quote blockquote {
+                font-size: 17px
+            }
+
+            .med-quote .quote-cn {
+                font-size: 14px
+            }
+
+            .intro-text h2 {
+                font-size: 22px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ══════ NAV ══════ -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img class="icon" src="images/logo.png" alt="DCS Logo">
+                <div>Dhammakaya Centre Singapore<br><span style="font-size:11px;font-weight:400;opacity:.7">法身寺中心 ·
+                        新加坡</span></div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="activities.html">Activities</a>
+                <a href="meditation.html" class="active">Meditation</a>
+                <a href="#" class="account-link"><i class="fas fa-user-circle"></i> Login</a>
+                <a href="online-donations.html" class="donate-link">Online Donation ♡</a>
+                <div class="nav-lang">
+                    <button class="active">EN</button>
+                    <button>中</button>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="activities.html">Activities</a>
+        <a href="meditation.html" class="active">Meditation</a>
+        <a href="#"><i class="fas fa-user-circle"></i> Login</a>
+        <a href="online-donations.html">Online Donation ♡</a>
+    </div>
+
+    <!-- ══════ HERO ══════ -->
+    <section class="hero hero-overlay-text">
+        <div class="hero-img-wrap">
+            <img src="images/dcs meditation_home.jpg" alt="Meditation at DCS">
+        </div>
+        <div class="hero-content">
+            <h1>Basic Meditation Course <span>初级静坐班</span></h1>
+            <p>A free 12-session guided meditation course. Open to all — no prior experience needed.</p>
+            <!-- เพิ่มปุ่มนี้ -->
+            <div class="hero-buttons">
+                <a href="register.html" class="btn btn-primary" style="font-size:15px;padding:13px 30px">
+                    <i class="fas fa-clipboard-list"></i> Register Online
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ INTRO ══════ -->
+    <section class="section med-intro">
+        <div class="section-inner">
+            <div class="intro-grid">
+                <div class="intro-img">
+                    <img src="images/bmc_home.jpg" alt="Meditation Class">
+                </div>
+                <div class="intro-text">
+                    <h2>About This Course <small>关于课程</small></h2>
+                    <p>Are you new to meditation and wish to learn how to meditate? If your answer is "yes", this course
+                        is for you!</p>
+                    <p>Since the year 2000, Dhammakaya Centre Singapore has been providing meditation classes for anyone
+                        who wishes to learn. Conducted in Chinese, our course is taught by an experienced practitioner
+                        with more than 20 years of meditation instruction experience.</p>
+                    <p>This course is designed with beginners in mind — easy and enjoyable with relaxation at the heart
+                        of the practice. Thousands of students have attested to the benefits of meditation after
+                        completing the course.</p>
+                    <p class="highlight">This course is provided free-of-charge with the kind support of our sponsors.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ COURSE DETAILS ══════ -->
+    <section class="section course-details">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>Course Details <small>课程详情</small></h2>
+            </div>
+            <div class="details-grid">
+                <div class="detail-card">
+                    <div class="d-icon"><i class="fas fa-book-open"></i></div>
+                    <h4>12 Lessons</h4>
+                    <p>Structured weekly lessons covering body stretching, meditation instructions, and guided practice
+                    </p>
+                </div>
+                <div class="detail-card">
+                    <div class="d-icon"><i class="fas fa-clock"></i></div>
+                    <h4>2 Hours Each</h4>
+                    <p>Each session lasts 2 hours with a comfortable mix of learning and practice</p>
+                </div>
+                <div class="detail-card">
+                    <div class="d-icon"><i class="fas fa-language"></i></div>
+                    <h4>In Chinese</h4>
+                    <p>Conducted in Chinese (华语) by an instructor with 20+ years of experience</p>
+                </div>
+                <div class="detail-card">
+                    <div class="d-icon" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);color:#2e7d32"><i
+                            class="fas fa-gift"></i></div>
+                    <h4>100% Free</h4>
+                    <p>No fees charged — supported entirely by generous sponsors and community donations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ BENEFITS ══════ -->
+    <section class="section benefits">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>Benefits of Meditation <small>静坐的好处</small></h2>
+                <p>Incorporating meditation into your daily routine can transform your life in many ways.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="b-icon">🧘</div>
+                    <h4>Inner Peace · 内在祥和</h4>
+                    <p>Find stillness and calm within, reducing anxiety and stress in your daily life</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="b-icon">💪</div>
+                    <h4>Physical Health · 身体健康</h4>
+                    <p>Meditation relaxes the mind and body, improving overall physical well-being</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="b-icon">😊</div>
+                    <h4>Happiness · 生活幸福</h4>
+                    <p>Discover true happiness that begins from within and radiates to your family and community</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="b-icon">🧠</div>
+                    <h4>Mental Clarity · 心智清明</h4>
+                    <p>Reduce stress, sharpen focus and increase cognitive abilities and work productivity</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="b-icon">❤️</div>
+                    <h4>Better Relationships · 人际关系</h4>
+                    <p>Positive change at the emotional level has a profound impact on your family and community</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="b-icon">🌏</div>
+                    <h4>World Peace · 世界和平</h4>
+                    <p>Pure spiritual energy from meditation subtly evolves into a great force for global harmony</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ QUOTE ══════ -->
+    <section class="section med-quote">
+        <div class="section-inner">
+            <blockquote>"In Singapore, a land filled with vigour and vitality, there is a group of people carrying out
+                the quintessential pursuits of life. Through meditation, they have found inner peace and true happiness
+                for themselves, their families, and the society in which they reside. They firmly believe that — World
+                Peace Comes from Inner Peace."</blockquote>
+            <p class="quote-cn">在新加坡这片充满活力的国土上，一群有福报的人们正"默默"实践着生命中最纯净的追寻。通过禅修静坐，寻找到内在的轻安与幸福。他们深信"世界和平来自内在的祥和"。</p>
+        </div>
+    </section>
+
+    <!-- ══════ REGISTER CTA ══════ -->
+    <!-- หาส่วนนี้ใน meditation.html -->
+    <section class="section register-cta" id="register">
+        <div class="section-inner">
+            <h2>Register for the 47th Basic Meditation Course</h2>
+            <p style="font-size:13px;color:var(--text-secondary)">报名第47期初级静坐班</p>
+            <p>Give yourself a chance to discover the simple joy, relaxation and benefits that
+                meditation can bring. New intake every quarter — spaces are limited!</p>
+
+            <p style="font-size:14px;margin-bottom:24px">
+                <i class="fas fa-butterfly" style="color:var(--blue-500)"></i>
+                For enquiries, contact:
+                <strong>Doris 9756 5616</strong> /
+                <strong>宝丽 9679 3750</strong>
+            </p>
+
+            <!-- ลบปุ่ม Call ออก เหลือแค่ Register -->
+            <a href="register.html" class="btn btn-primary" style="font-size:16px;padding:15px 36px">
+                <i class="fas fa-clipboard-list"></i> Register Online
+            </a>
+        </div>
+    </section>
+
+    <!-- ══════ FOOTER ══════ -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div>
+                <h4>Dhammakaya Centre Singapore</h4>
+                <p>A sanctuary for mindfulness and spiritual growth in the heart of Singapore. Open to all, regardless
+                    of background or experience.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="activities.html">Activities</a>
+                <a href="online-donations.html">Online Donation</a>
+            </div>
+            <div class="footer-links">
+                <h4>Programs</h4>
+                <a href="meditation.html">Basic Meditation</a>
+                <a href="activities.html">Children's Class</a>
+                <a href="#">Dhamma Talks</a>
+                <a href="#">Volunteering</a>
+            </div>
+            <div class="footer-links">
+                <h4>Support</h4>
+                <a href="#">Contact Us</a>
+                <a href="#">FAQ</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">My Account</a>
+            </div>
+        </div>
+        <div class="footer-mobile-only">
+            <div class="footer-links-mobile">
+                <div>
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="activities.html">Activities</a>
+                    <a href="online-donations.html">Donation</a>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <a href="#">Contact Us</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">My Account</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 Dhammakaya Centre Singapore. All rights reserved.</div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

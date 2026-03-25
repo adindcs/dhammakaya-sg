@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhammakaya Centre Singapore · 新加坡法身寺中心</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ══════ NAV ══════ -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img class="icon" src="images/logo.png" alt="DCS Logo">
+                <div>Dhammakaya Centre Singapore<br><span style="font-size:11px;font-weight:400;opacity:.7">法身寺中心 ·
+                        新加坡</span></div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="#">About Us</a>
+                <a href="#">Activities</a>
+                <a href="#">Meditation</a>
+                <a href="#">Online Donation</a>
+                <a href="#">My Account</a>
+                <a href="donations.html" class="donate-link">Donate ♡</a>
+                <div class="nav-lang">
+                    <button class="active">EN</button>
+                    <button>中</button>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="active">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Activities</a>
+        <a href="#">Meditation</a>
+        <a href="#">Online Donation</a>
+        <a href="#">My Account</a>
+        <a href="donations.html">Donate ♡</a>
+    </div>
+
+    <!-- ══════ HERO SLIDESHOW ══════ -->
+    <section class="hero">
+        <div class="hero-slide active"><img src="images/dcs daytime.jpg" alt="DCS Building"></div>
+        <div class="hero-slide"><img src="images/dcs at night.jpg" alt="Meditation"></div>
+        <div class="hero-slide"><img src="images/dcs meditation_home.jpg" alt="Ceremony"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>A Sanctuary for Mindfulness &amp; Spiritual Growth
+                <span>心灵成长与正念的圣地</span>
+            </h1>
+            <p>Join us in the practice of inner stillness and collective harmony. Open to all, regardless of background
+                or experience.</p>
+            <div class="hero-buttons">
+                <a href="#meditation" class="btn btn-primary"><i class="fas fa-om"></i> Start Meditation</a>
+                <a href="donation.html" class="btn btn-outline"><i class="fas fa-heart"></i> Make a Donation</a>
+            </div>
+        </div>
+        <div class="hero-dots">
+            <button class="active" onclick="goSlide(0)"></button>
+            <button onclick="goSlide(1)"></button>
+            <button onclick="goSlide(2)"></button>
+        </div>
+    </section>
+
+    <!-- ══════ HIGHLIGHTS ══════ -->
+    <section class="section highlights">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>DCS Highlights <small>精选活动</small></h2>
+                <p>Stay updated with the latest programs, events, and community happenings at Dhammakaya Centre
+                    Singapore.</p>
+            </div>
+            <div class="highlights-grid">
+                <a class="highlight-card" href="#">
+                    <div class="card-img"><img src="images/bmc_home.jpg" alt=""></div>
+                    <div class="card-body">
+                        <span class="card-badge badge-meditation">Meditation · 静坐</span>
+                        <h3>47th Basic Meditation Course<small>第47期初级静坐班</small></h3>
+                        <p class="card-desc">Free 12-session guided meditation course in Chinese. Suitable for
+                            beginners.</p>
+                    </div>
+                </a>
+                <a class="highlight-card" href="#">
+                    <div class="card-img"><img src="images/children class_home.jpg" alt=""></div>
+                    <div class="card-body">
+                        <span class="card-badge badge-family">Family · 家庭</span>
+                        <h3>Children's Buddhist Class<small>儿童佛学班</small></h3>
+                        <p class="card-desc">Fun and interactive sessions teaching mindfulness, compassion, and good
+                            values.</p>
+                    </div>
+                </a>
+                <a class="highlight-card" href="donation.html">
+                    <div class="card-img"><img src="images/donation_home.jpg" alt=""></div>
+                    <div class="card-body">
+                        <span class="card-badge badge-donation">Donation · 布施</span>
+                        <h3>Online Donation<small>线上布施</small></h3>
+                        <p class="card-desc">Support DCS's mission with a secure online donation. Every contribution
+                            counts.</p>
+                    </div>
+                </a>
+                <a class="highlight-card" href="#">
+                    <div class="card-img"><img src="images/stayhome meditation.jpg" alt=""></div>
+                    <div class="card-body">
+                        <span class="card-badge badge-event">Daily · 每日</span>
+                        <h3>Meditate for 10 Minutes<small>每日十分钟静坐</small></h3>
+                        <p class="card-desc">A simple daily practice to cultivate inner peace. Join us online anytime.
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ ACTIVITIES ══════ -->
+    <section class="section activities">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>Activities at Dhammakaya <small>法身寺活动</small></h2>
+                <p>From weekly meditation sessions to family-friendly festivals and cultural observances, our temple is
+                    a vibrant hub of spiritual and community life.</p>
+            </div>
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <div class="activity-icon icon-meditation"><i class="fas fa-spa"></i></div>
+                    <h3>Guided Meditation Sessions</h3>
+                    <p>Join peaceful, instructor-led sessions that help you cultivate mindfulness, clarity, and
+                        emotional balance. Suitable for beginners and experienced practitioners alike.</p>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon icon-family"><i class="fas fa-users"></i></div>
+                    <h3>Family &amp; Youth Programs</h3>
+                    <p>Interactive and meaningful programs for children, teens, and families that help nurture
+                        compassion, respect, and mindful living from an early age.</p>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon icon-dhamma"><i class="fas fa-book-open"></i></div>
+                    <h3>Dhamma Talks &amp; Teachings</h3>
+                    <p>Explore timeless Buddhist wisdom through weekly talks and reflections that make ancient teachings
+                        accessible and practical for modern life.</p>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon icon-community"><i class="fas fa-hands-helping"></i></div>
+                    <h3>Community Outreach</h3>
+                    <p>Engage in acts of service through charity events, temple care, and mindful volunteer work.
+                        Contribute your time and energy to something meaningful.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ MEDITATION CTA ══════ -->
+    <section class="section meditation-cta" id="meditation">
+        <div class="section-inner">
+            <h2>Begin Your Meditation Journey</h2>
+            <p>Experience the transformative power of meditation with our free guided sessions. No prior experience
+                needed — just an open mind and a willingness to explore inner peace.</p>
+            <div class="cta-features">
+                <div class="cta-feature"><i class="fas fa-check-circle"></i> Free for everyone</div>
+                <div class="cta-feature"><i class="fas fa-check-circle"></i> Beginner friendly</div>
+                <div class="cta-feature"><i class="fas fa-check-circle"></i> English &amp; Chinese</div>
+                <div class="cta-feature"><i class="fas fa-check-circle"></i> Online &amp; Onsite</div>
+            </div>
+            <a href="#" class="btn btn-primary" style="font-size:16px;padding:15px 36px"><i
+                    class="fas fa-play-circle"></i> Join Free Meditation Class</a>
+        </div>
+    </section>
+
+    <!-- ══════ DONATE CTA ══════ -->
+    <section class="section donate-cta">
+        <div class="section-inner">
+            <div class="donate-cta-inner">
+                <div class="donate-cta-text">
+                    <h2>Support Our Mission <small>支持我们的使命</small></h2>
+                    <p>Your generosity sustains free teachings, meditation programs, and community events for decades to
+                        come. Every contribution, big or small, makes a difference.</p>
+                    <div class="quote">"Your contributions are integral to our mission and will enable DCS to renew the
+                        lease for the next thirty years. Your support will bring hope and prosperity to many."</div>
+                    <a href="donation.html" class="btn btn-primary"><i class="fas fa-heart"></i> Donate Now</a>
+                </div>
+                <div class="donate-cards">
+                    <a class="donate-card" href="donation.html">
+                        <img src="images/offer budha.jpg" alt="">
+                        <div class="card-overlay"></div>
+                        <h4>Offering to Buddha<small>供佛</small></h4>
+                    </a>
+                    <a class="donate-card" href="donation.html">
+                        <img src="images/light offering to buddha.jpg" alt="">
+                        <div class="card-overlay"></div>
+                        <h4>Light Offering<small>供灯</small></h4>
+                    </a>
+                    <a class="donate-card" href="donation.html">
+                        <img src="images/alms offering.jpg" alt="">
+                        <div class="card-overlay"></div>
+                        <h4>Alms Offering<small>供僧</small></h4>
+                    </a>
+                    <a class="donate-card" href="donation.html">
+                        <img src="images/dcs daytime.jpg" alt="">
+                        <div class="card-overlay"></div>
+                        <h4>30-Year Merit Fund<small>三十年功德基金</small></h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ CONTACT & MAP ══════ -->
+    <section class="section contact-section">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>Visit Us <small>联系我们</small></h2>
+            </div>
+            <div class="contact-grid">
+                <div class="map-placeholder">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.6185766836493!2d103.89279417580077!3d1.4051289613939466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da178ace0faad9%3A0x7aea3b14e5d51e6!2sDhammakaya%20Centre%20Singapore!5e0!3m2!1sen!2ssg!4v1774163920840!5m2!1sen!2ssg"
+                        allowfullscreen loading="lazy"></iframe>
+
+                </div>
+                <div class="contact-info">
+                    <h3>Dhammakaya Centre Singapore</h3>
+                    <div class="contact-item">
+                        <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="ci-text"><strong>Address</strong>6 Sumang Walk, Punggol, Singapore 828675</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="ci-icon"><i class="fas fa-clock"></i></div>
+                        <div class="ci-text"><strong>Opening Hours</strong>Daily: 9:00 AM – 9:00 PM<br>Meditation
+                            sessions on weekends</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="ci-icon"><i class="fas fa-phone"></i></div>
+                        <div class="ci-text"><strong>Phone</strong>+65 6849 5901</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="ci-text"><strong>Email</strong>info@dhammakaya.sg</div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-line"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ FOOTER ══════ -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div>
+                <h4>Dhammakaya Centre Singapore</h4>
+                <p>A sanctuary for mindfulness and spiritual growth in the heart of Singapore. Open to all, regardless
+                    of background or experience.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="#">About Us</a>
+                <a href="#">Activities</a>
+                <a href="#">Meditation</a>
+                <a href="donations.html">Online Donation</a>
+            </div>
+            <div class="footer-links">
+                <h4>Programs</h4>
+                <a href="#">Basic Meditation</a>
+                <a href="#">Children's Class</a>
+                <a href="#">Dhamma Talks</a>
+                <a href="#">Volunteering</a>
+            </div>
+            <div class="footer-links">
+                <h4>Support</h4>
+                <a href="#">Contact Us</a>
+                <a href="#">FAQ</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">My Account</a>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 Dhammakaya Centre Singapore. All rights reserved.</div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

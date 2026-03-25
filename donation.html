@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCS 30-Year Merit Fund · 三十年功德基金</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img class="icon" src="images/logo.png" alt="DCS Logo">
+                <div>Dhammakaya Centre Singapore<br><span style="font-size:11px;font-weight:400;opacity:.7">法身寺中心 ·
+                        新加坡</span></div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="activities.html">Activities</a>
+                <a href="meditation.html">Meditation</a>
+                <a href="#" class="account-link"><i class="fas fa-user-circle"></i> Login</a>
+                <a href="online-donations.html" class="donate-link">Online Donation ♡</a>
+                <div class="nav-lang">
+                    <button class="active">EN</button>
+                    <button>中</button>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- MOBILE DROPDOWN MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="activities.html">Activities</a>
+        <a href="meditation.html" class="active">Meditation</a>
+        <a href="#"><i class="fas fa-user-circle"></i> Login</a>
+        <a href="online-donations.html">Online Donation ♡</a>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main-container">
+        <div class="content-grid">
+            <!-- LEFT COLUMN -->
+            <div>
+                <!-- Hero -->
+                <div class="hero-card">
+                    <div class="hero-image" id="heroImg">
+                        <img src="images/dcs daytime.jpg" alt="DCS Building">
+                        <div class="hero-image-overlay">
+                            <div class="hero-badge">Monthly merit · 每月功德</div>
+                            <div class="hero-title">DCS 30-Year Merit Fund</div>
+                            <div class="hero-subtitle">三十年功德基金 · Supporting DCS lease renewal for 2044 and beyond</div>
+                        </div>
+                    </div>
+
+                    <!-- Thumbnails -->
+                    <div class="thumb-strip">
+                        <div class="thumb active" onclick="changeHero(0,this)">
+                            <img src="images/dcs daytime.jpg" alt="">
+                        </div>
+                        <div class="thumb" onclick="changeHero(1,this)">
+                            <img src="images/dcs at night.jpg" alt="">
+                        </div>
+                        <div class="thumb" onclick="changeHero(2,this)">
+                            <img src="images/dcs first pile.jpg" alt="">
+                        </div>
+                        <div class="thumb" onclick="changeHero(3,this)">
+                            <img src="images/dcs handover day.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="stats-row">
+                        <div class="stat-box">
+                            <div class="num">2014</div>
+                            <div class="label">Land acquired</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="num">2044</div>
+                            <div class="label">Lease renewal</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="num">30 yrs</div>
+                            <div class="label">Next term</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="num">$50</div>
+                            <div class="label">Suggested gift</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About -->
+                <div class="about-section"
+                    style="margin-top:20px;border-radius:var(--radius-lg);box-shadow:var(--shadow-sm)">
+                    <div class="section-title">ABOUT THIS MERIT <small>· 关于此功德</small></div>
+                    <p class="about-text">In 2014, Dhammakaya Centre Singapore purchased the land on which the DCS
+                        building now stands. The lease is valid for 30 years, with renewal due in 2044. With these
+                        facilities, DCS offers meditation, Dhamma talks, and programs for children, youth, and adults
+                        from all walks of life.</p>
+
+                    <div class="quote-box">
+                        "Your contributions are integral to our mission and will enable DCS to renew the lease for the
+                        next thirty years. Your support will bring hope and prosperity to many."
+                    </div>
+
+                    <div class="blessing-box">
+                        <li>Donors will be blessed with good health, wealth and prosperity in every lifetime until the
+                            Ultimate Nibbana</li>
+                        <li>Your generosity sustains free teachings, meditation programs, and community events for
+                            decades to come</li>
+                    </div>
+
+                    <div class="ceremony-banner">
+                        <div class="lantern">🏮</div>
+                        <div class="info">
+                            <strong>Special robe offering ceremony · 献袈裟法会</strong>
+                            Donors are warmly invited on the 1st Sunday of every month at 2:15 PM<br>
+                            <span style="font-size:12px;color:var(--text-secondary)">每月第一个星期日下午 2:15
+                                举行特别仪式，欢迎捐款者参加</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: DONATE PANEL -->
+            <div class="donate-panel">
+                <h2>Make your donation <small>进行布施</small></h2>
+                <p class="donate-desc">All amounts in Singapore Dollars (SGD). Your contribution goes directly to
+                    supporting DCS's mission.</p>
+
+                <div class="amount-label">Select Amount · 选择金额</div>
+                <div class="amount-grid">
+                    <button class="amt-btn" onclick="selectAmt(20,this)">$20</button>
+                    <button class="amt-btn selected" onclick="selectAmt(50,this)">$50<span
+                            class="suggested">Suggested</span></button>
+                    <button class="amt-btn" onclick="selectAmt(100,this)">$100</button>
+                    <button class="amt-btn" onclick="selectAmt(200,this)">$200</button>
+                    <button class="amt-btn" onclick="selectAmt(500,this)">$500</button>
+                    <button class="amt-btn" onclick="selectAmt(-1,this)">Other</button>
+                </div>
+                <div class="custom-input" id="customInput">
+                    <span class="prefix">SGD $</span>
+                    <input type="number" placeholder="Enter amount" min="1" oninput="updateCustom(this.value)">
+                </div>
+
+                <!-- MULTI-DONOR INPUT -->
+                <div class="field-label">Donor Name · 捐款者姓名</div>
+                <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
+                    <input type="text" class="text-input" id="donorInput" placeholder="Your name in English or Chinese"
+                        style="margin-bottom:0;flex:1"
+                        onkeydown="if(event.key==='Enter'){event.preventDefault();addDonor()}">
+                    <button onclick="addDonor()" title="Add donor" style="
+                        width:40px;height:40px;flex-shrink:0;border-radius:8px;border:none;
+                        background:var(--blue-500);color:#fff;font-size:22px;cursor:pointer;
+                        display:flex;align-items:center;justify-content:center;line-height:1">+</button>
+                </div>
+                <div class="field-hint" style="margin-bottom:12px">Press + to add more donors · 按 + 可添加多位捐款者</div>
+
+                <!-- DONOR LIST -->
+                <div id="donorList" style="display:flex;flex-direction:column;gap:6px;margin-bottom:12px"></div>
+
+                <div class="summary-box">
+                    <div id="donorSummaryRows"></div>
+                    <div class="summary-total">
+                        <span class="label">Total · 总计</span>
+                        <span class="val" id="totalAmt">SGD $50</span>
+                    </div>
+                </div>
+
+                <button class="donate-btn" onclick="handleDonate()">
+                    <i class="fas fa-heart"></i> Donate now · 立即布施
+                </button>
+
+                <div class="payment-icons">
+                    <span>PayNow</span><span>Visa</span><span>Mastercard</span><span>Amex</span>
+                </div>
+                <div class="secure-note"><i class="fas fa-lock"></i> Secured payment · 安全支付</div>
+            </div>
+        </div>
+
+        <!-- OTHER MERITS -->
+        <div class="merits-section">
+            <div class="merits-header">
+                <h3>You might also like <small>· 其他功德</small></h3>
+                <a href="#">View all merits →</a>
+            </div>
+            <div class="merits-grid">
+                <a class="merit-card" href="#">
+                    <div class="img"><img src="images/offer budha.jpg" alt=""></div>
+                    <div class="info">
+                        <h4>Offering to Buddha<small>供佛</small></h4>
+                    </div>
+                </a>
+                <a class="merit-card" href="#">
+                    <div class="img"><img src="images/light offering to buddha.jpg" alt=""></div>
+                    <div class="info">
+                        <h4>Light Offering to Buddha<small>供灯</small></h4>
+                    </div>
+                </a>
+                <a class="merit-card" href="#">
+                    <div class="img"><img src="images/alms offering.jpg" alt=""></div>
+                    <div class="info">
+                        <h4>Alms Offering<small>供僧</small></h4>
+                    </div>
+                </a>
+                <a class="merit-card" href="#">
+                    <div class="img"><img src="images/medical fund.jpg" alt=""></div>
+                    <div class="info">
+                        <h4>Offer Medical Fund<small>供僧医疗基金</small></h4>
+                    </div>
+                </a>
+                <a class="merit-card" href="#">
+                    <div class="img"><img src="images/wealth prosperity.jpg" alt=""></div>
+                    <div class="info">
+                        <h4>Wealth & Prosperity<small>财富与繁荣</small></h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        © 2026 Dhammakaya Centre Singapore · <a href="#">Privacy Policy</a> · <a href="#">Contact Us</a>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // ── Amount selection ──────────────────────────────────────
+        let selectedAmt = 50;
+
+        function selectAmt(val, btn) {
+            document.querySelectorAll('.amt-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            const ci = document.getElementById('customInput');
+            if (val === -1) {
+                ci.style.display = 'flex';
+                ci.querySelector('input').focus();
+                selectedAmt = 0;
+            } else {
+                ci.style.display = 'none';
+                selectedAmt = val;
+            }
+            renderSummary();
+        }
+
+        function updateCustom(val) {
+            selectedAmt = parseInt(val) || 0;
+            renderSummary();
+        }
+
+        // ── Multi-donor logic ─────────────────────────────────────
+        let donors = [];
+
+        function addDonor() {
+            const input = document.getElementById('donorInput');
+            const name = input.value.trim();
+            if (!name) {
+                input.style.borderColor = '#e24b4a';
+                setTimeout(() => input.style.borderColor = '', 1200);
+                return;
+            }
+            if (!selectedAmt) {
+                alert('Please select a donation amount first.');
+                return;
+            }
+            donors.push({ name, amount: selectedAmt });
+            input.value = '';
+            input.focus();
+            renderDonorList();
+            renderSummary();
+        }
+
+        function removeDonor(i) {
+            donors.splice(i, 1);
+            renderDonorList();
+            renderSummary();
+        }
+
+        function renderDonorList() {
+            const list = document.getElementById('donorList');
+            if (donors.length === 0) { list.innerHTML = ''; return; }
+            list.innerHTML = donors.map((d, i) => `
+                <div style="display:flex;align-items:center;gap:10px;
+                    background:var(--blue-50,#e8f4fb);border-radius:8px;padding:10px 12px">
+                    <div style="width:22px;height:22px;border-radius:50%;background:var(--blue-500);
+                        color:#fff;font-size:11px;font-weight:600;display:flex;
+                        align-items:center;justify-content:center;flex-shrink:0">${i + 1}</div>
+                    <div style="flex:1;font-size:14px;color:var(--text-primary)">${d.name}</div>
+                    <div style="font-size:14px;font-weight:600;color:var(--blue-500)">SGD $${d.amount}</div>
+                    <button onclick="removeDonor(${i})" style="background:none;border:none;
+                        color:#aaa;cursor:pointer;font-size:15px;padding:0 2px;line-height:1"
+                        title="Remove">✕</button>
+                </div>`).join('');
+        }
+
+        function renderSummary() {
+            const pendingName = document.getElementById('donorInput').value.trim();
+            const allDonors = pendingName
+                ? [...donors, { name: pendingName, amount: selectedAmt }]
+                : donors;
+
+            const rows = document.getElementById('donorSummaryRows');
+            if (allDonors.length > 0) {
+                rows.innerHTML = allDonors.map(d =>
+                    `<div class="summary-row">
+                        <span>${d.name}</span>
+                        <span>SGD $${d.amount}.00</span>
+                    </div>`).join('');
+            } else {
+                rows.innerHTML = `<div class="summary-row">
+                    <span>Donation</span>
+                    <span>SGD $${selectedAmt || 0}.00</span>
+                </div>`;
+            }
+
+            const total = allDonors.length > 0
+                ? allDonors.reduce((s, d) => s + d.amount, 0)
+                : selectedAmt || 0;
+            document.getElementById('totalAmt').textContent = `SGD $${total}`;
+        }
+
+        function handleDonate() {
+            const input = document.getElementById('donorInput');
+            const name = input.value.trim();
+            let finalDonors = [...donors];
+            if (name && selectedAmt) finalDonors.push({ name, amount: selectedAmt });
+            if (finalDonors.length === 0) {
+                input.style.borderColor = '#e24b4a';
+                setTimeout(() => input.style.borderColor = '', 1200);
+                input.focus();
+                return;
+            }
+            const total = finalDonors.reduce((s, d) => s + d.amount, 0);
+            alert('Thank you for your generous donation! 🙏\nSadhu Sadhu Sadhu!\n\n' +
+                finalDonors.map((d, i) => `${i + 1}. ${d.name} — SGD $${d.amount}`).join('\n') +
+                `\n\nTotal: SGD $${total}`);
+        }
+
+        // init
+        renderSummary();
+    </script>
+
+</html>
