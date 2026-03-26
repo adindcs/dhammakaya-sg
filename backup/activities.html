@@ -271,8 +271,8 @@
         <div class="nav-inner">
             <a href="index.html" class="nav-logo">
                 <img class="icon" src="images/logo.png" alt="DCS Logo">
-                <div>Dhammakaya Centre Singapore<br><span
-                        style="font-size:11px;font-weight:400;opacity:.7">新加坡法身寺</span></div>
+                <div>Dhammakaya Centre Singapore<br><span style="font-size:11px;font-weight:400;opacity:.7">法身寺中心 ·
+                        新加坡</span></div>
             </a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
@@ -305,18 +305,25 @@
         </div>
     </section>
 
-    <!-- ══════ ROW 1: MONTHLY CEREMONIES ══════ -->
+    <!-- ══════ FILTER TABS ══════ -->
+    <section class="section" style="background:#f7f7f7;padding-bottom:0">
+        <div class="section-inner">
+            <div class="cat-tabs">
+                <a class="cat-tab active" onclick="filterCards('all',this)">All Activities</a>
+                <a class="cat-tab" onclick="filterCards('ceremony',this)">Ceremonies</a>
+                <a class="cat-tab" onclick="filterCards('meditation',this)">Meditation</a>
+                <a class="cat-tab" onclick="filterCards('learning',this)">Learning</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ ACTIVITIES GRID ══════ -->
     <section class="section" style="background:#f7f7f7;padding-top:32px">
         <div class="section-inner">
-            <div class="section-divider">
-                <span class="icon">🙏</span>
-                <h2>Monthly Ceremonies <small>每月法会</small></h2>
-                <div class="line"></div>
-            </div>
-            <div class="act-grid">
+            <div class="act-grid" id="actGrid">
 
                 <!-- 1. Offering to Buddha -->
-                <a class="act-card" href="offering-to-buddha-activity.html" data-cat="ceremony">
+                <a class="act-card" href="#" data-cat="ceremony">
                     <div class="card-img">
                         <span class="card-cat cat-ceremony">Ceremony</span>
                         <img src="images/offer budha.jpg" alt="Offering to Buddha">
@@ -330,7 +337,7 @@
                 </a>
 
                 <!-- 2. Alms Offering -->
-                <a class="act-card" href="alms-offering-activity.html" data-cat="ceremony">
+                <a class="act-card" href="#" data-cat="ceremony">
                     <div class="card-img">
                         <span class="card-cat cat-ceremony">Ceremony</span>
                         <img src="images/alms offering.jpg" alt="Alms Offering">
@@ -344,10 +351,10 @@
                 </a>
 
                 <!-- 3. Celebrate Birth Month -->
-                <a class="act-card" href="birth-month-celebration-activity.html" data-cat="ceremony">
+                <a class="act-card" href="#" data-cat="ceremony">
                     <div class="card-img">
                         <span class="card-cat cat-ceremony">Ceremony</span>
-                        <img src="images/birth month celebration.jpg" alt="Celebrate Birth Month">
+                        <img src="images/light offering to buddha.jpg" alt="Celebrate Birth Month">
                     </div>
                     <div class="card-body">
                         <h3>Celebrate Birth Month<small>庆生月</small></h3>
@@ -371,20 +378,6 @@
                     </div>
                 </a>
 
-            </div>
-        </div>
-    </section>
-
-    <!-- ══════ ROW 2: SPECIAL EVENTS ══════ -->
-    <section class="section" style="background:#f7f7f7;padding-top:16px">
-        <div class="section-inner">
-            <div class="section-divider">
-                <span class="icon">🎯</span>
-                <h2>Special Events <small>特别活动</small></h2>
-                <div class="line"></div>
-            </div>
-            <div class="act-grid">
-
                 <!-- 5. Basic Meditation Course -->
                 <a class="act-card" href="#" data-cat="meditation">
                     <div class="card-img">
@@ -400,7 +393,7 @@
                 </a>
 
                 <!-- 6. Children's Dhamma Class -->
-                <a class="act-card" href="childrens-buddhist-class-activity.html" data-cat="learning">
+                <a class="act-card" href="#" data-cat="learning">
                     <div class="card-img">
                         <span class="card-cat cat-learning">Learning</span>
                         <img src="images/children class_home.jpg" alt="Children's Dhamma Class">
@@ -438,72 +431,6 @@
                         <p class="card-desc">Deepen your understanding of Buddhist teachings through guided study
                             sessions covering the Dhamma and its practical applications in daily life.</p>
                         <div class="card-schedule"><i class="fas fa-calendar-alt"></i> Weekly sessions</div>
-                    </div>
-                </a>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ══════ ROW 3: ANNUAL EVENTS ══════ -->
-    <section class="section" style="background:#f7f7f7;padding-top:16px">
-        <div class="section-inner">
-            <div class="section-divider">
-                <span class="icon">🗓️</span>
-                <h2>Annual Events <small>年度活动</small></h2>
-                <div class="line"></div>
-            </div>
-            <div class="act-grid">
-
-                <!-- Annual 1 (template) -->
-                <a class="act-card" href="#" data-cat="annual">
-                    <div class="card-img">
-                        <span class="card-cat cat-ceremony">Annual</span>
-                        <img src="images/bmc_home.jpg" alt="Annual Event 1">
-                    </div>
-                    <div class="card-body">
-                        <h3>Annual Event 1<small>年度活动 1</small></h3>
-                        <p class="card-desc">Description placeholder — update with actual event details.</p>
-                        <div class="card-schedule"><i class="fas fa-calendar-alt"></i> Date TBD</div>
-                    </div>
-                </a>
-
-                <!-- Annual 2 (template) -->
-                <a class="act-card" href="#" data-cat="annual">
-                    <div class="card-img">
-                        <span class="card-cat cat-ceremony">Annual</span>
-                        <img src="images/children class_home.jpg" alt="Annual Event 2">
-                    </div>
-                    <div class="card-body">
-                        <h3>Annual Event 2<small>年度活动 2</small></h3>
-                        <p class="card-desc">Description placeholder — update with actual event details.</p>
-                        <div class="card-schedule"><i class="fas fa-calendar-alt"></i> Date TBD</div>
-                    </div>
-                </a>
-
-                <!-- Annual 3 (template) -->
-                <a class="act-card" href="#" data-cat="annual">
-                    <div class="card-img">
-                        <span class="card-cat cat-ceremony">Annual</span>
-                        <img src="images/stayhome meditation.jpg" alt="Annual Event 3">
-                    </div>
-                    <div class="card-body">
-                        <h3>Annual Event 3<small>年度活动 3</small></h3>
-                        <p class="card-desc">Description placeholder — update with actual event details.</p>
-                        <div class="card-schedule"><i class="fas fa-calendar-alt"></i> Date TBD</div>
-                    </div>
-                </a>
-
-                <!-- Annual 4 (template) -->
-                <a class="act-card" href="#" data-cat="annual">
-                    <div class="card-img">
-                        <span class="card-cat cat-ceremony">Annual</span>
-                        <img src="images/dcs meditation_home.jpg" alt="Annual Event 4">
-                    </div>
-                    <div class="card-body">
-                        <h3>Annual Event 4<small>年度活动 4</small></h3>
-                        <p class="card-desc">Description placeholder — update with actual event details.</p>
-                        <div class="card-schedule"><i class="fas fa-calendar-alt"></i> Date TBD</div>
                     </div>
                 </a>
 
@@ -610,6 +537,20 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        /* Filter activities by category */
+        function filterCards(cat, el) {
+            document.querySelectorAll('.cat-tab').forEach(function (t) { t.classList.remove('active'); });
+            el.classList.add('active');
+            document.querySelectorAll('.act-card').forEach(function (card) {
+                if (cat === 'all' || card.dataset.cat === cat) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>

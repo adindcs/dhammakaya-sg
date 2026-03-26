@@ -29,17 +29,11 @@ document.addEventListener('click', function (e) {
    ══════════════════════════════════ */
 var currentAmt = 50;
 
-var heroImages = [
-    'images/dcs daytime.jpg',
-    'images/dcs at night.jpg',
-    'images/dcs first pile.jpg',
-    'images/dcs handover day.jpg'
-];
-
 function changeHero(i, el) {
-    var img = document.querySelector('#heroImg img');
-    if (img) {
-        img.src = heroImages[i];
+    var heroImg = document.querySelector('#heroImg > img');
+    var thumbImg = el.querySelector('img');
+    if (heroImg && thumbImg) {
+        heroImg.src = thumbImg.src;
         document.querySelectorAll('.thumb').forEach(function (t) { t.classList.remove('active'); });
         el.classList.add('active');
     }

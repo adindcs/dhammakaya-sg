@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transference of Merit · 回向功德 · Dhammakaya Centre Singapore</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img class="icon" src="images/logo.png" alt="DCS Logo">
+                <div>Dhammakaya Centre Singapore<br><span
+                        style="font-size:11px;font-weight:400;opacity:.7">新加坡法身寺</span></div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="activities.html">Activities</a>
+                <a href="meditation.html">Meditation</a>
+                <a href="#" class="account-link"><i class="fas fa-user-circle"></i> Login</a>
+                <a href="online-donations.html" class="donate-link">Online Donation ♡</a>
+                <div class="nav-lang">
+                    <button class="active">EN</button>
+                    <button>中</button>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- MOBILE DROPDOWN MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="activities.html">Activities</a>
+        <a href="meditation.html" class="active">Meditation</a>
+        <a href="#"><i class="fas fa-user-circle"></i> Login</a>
+        <a href="online-donations.html">Online Donation ♡</a>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main-container">
+        <div class="content-grid">
+            <!-- LEFT COLUMN -->
+            <div>
+                <!-- Hero -->
+                <div class="hero-card">
+                    <div class="hero-image" id="heroImg">
+                        <img src="images/transfermerit03.png" alt="Transference of Merit">
+                        <div class="hero-image-overlay">
+                            <div class="hero-badge">Monthly merit · 每月功德</div>
+                            <div class="hero-title">Transference of Merit</div>
+                            <div class="hero-subtitle">回向功德 · Dedicate merits to your departed loved ones</div>
+                        </div>
+                    </div>
+
+                    <!-- Thumbnails -->
+                    <div class="thumb-strip">
+                        <div class="thumb active" onclick="changeHero(0,this)">
+                            <img src="images/Transfer-of-Merit02.jpg" alt="">
+                        </div>
+                        <div class="thumb" onclick="changeHero(1,this)">
+                            <img src="images/transfermerit03.png" alt="">
+                        </div>
+                        <div class="thumb" onclick="changeHero(2,this)">
+                            <img src="images/trasfermerit04.jpg" alt="">
+                        </div>
+                        <div class="thumb" onclick="changeHero(3,this)">
+                            <img src="images/Transfer-of-Merit01.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="stats-row">
+                        <div class="stat-box">
+                            <div class="num">4th Sun</div>
+                            <div class="label">Every month</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="num">$10</div>
+                            <div class="label">From</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="num">🕊️</div>
+                            <div class="label">For departed ones</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="num">📍</div>
+                            <div class="label">At DCS Punggol</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About -->
+                <div class="about-section"
+                    style="margin-top:20px;border-radius:var(--radius-lg);box-shadow:var(--shadow-sm)">
+                    <div class="section-title">ABOUT THIS MERIT <small>· 关于此功德</small></div>
+                    <p class="about-text">According to Buddhist teaching, the greatest gift one can give to one's
+                        departed loved ones and ancestors is to perform acts of merit and dedicate such merit to them.
+                    </p>
+                    <p class="about-text" style="margin-top:12px">In this monthly ceremony, the Sangha will be chanting
+                        the Abhidhamma Scripture, which is the scripture the Lord Buddha delivered to His deceased
+                        mother and other heavenly beings in the second level of heaven, Tavatimsa. During the Sangha's
+                        chanting, we are to calm our minds, recollect our merits and transfer them to our ancestors and
+                        departed loved ones.</p>
+
+                    <div class="quote-box">
+                        "The greatest gift one can give to one's departed loved ones and ancestors is to perform acts of
+                        merit and dedicate such merit to them."
+                    </div>
+
+                    <div class="blessing-box">
+                        <li>Transfer merits to departed loved ones and ancestors</li>
+                        <li>Calm the mind and recollect merits during the Abhidhamma chanting</li>
+                        <li>A profound act of love and remembrance</li>
+                    </div>
+
+                    <div class="ceremony-banner">
+                        <div class="lantern">🕊️</div>
+                        <div class="info">
+                            <strong>Transference of Merit ceremony · 回向功德法会</strong>
+                            Held on the 2nd Sunday of every month at DCS<br>
+                            <span style="font-size:12px;color:var(--text-secondary)">每月第二个星期日举行，欢迎大家参加</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: DONATE PANEL -->
+            <div class="donate-panel">
+                <h2>Make your donation <small>进行布施</small></h2>
+                <p class="donate-desc">All amounts in Singapore Dollars (SGD). Your contribution goes directly to
+                    supporting DCS's mission.</p>
+
+                <div class="amount-label">Select Amount · 选择金额</div>
+                <div class="amount-grid">
+                    <button class="amt-btn selected" onclick="selectAmt(10,this)">$10</button>
+                    <button class="amt-btn" onclick="selectAmt(30,this)">$30</button>
+                    <button class="amt-btn" onclick="selectAmt(50,this)">$50</button>
+                </div>
+
+                <!-- DONOR NAME (single, no +) -->
+                <div class="field-label">Donor Name · 捐款者姓名</div>
+                <input type="text" class="text-input" id="donorInput" placeholder="Your name in English or Chinese">
+
+                <!-- DEPARTED NAMES -->
+                <div class="field-label">Departed Names · 往生者姓名 <small
+                        style="color:var(--text-secondary);font-weight:400">(*first name required)</small></div>
+                <div id="departedFields"></div>
+
+                <div class="summary-box">
+                    <div class="summary-row">
+                        <span>Donation</span>
+                        <span id="summaryAmt">SGD $10.00</span>
+                    </div>
+                    <div class="summary-total">
+                        <span class="label">Total · 总计</span>
+                        <span class="val" id="totalAmt">SGD $10</span>
+                    </div>
+                </div>
+
+                <button class="donate-btn" onclick="handleDonate()">
+                    <i class="fas fa-heart"></i> Donate now · 立即布施
+                </button>
+
+                <div class="payment-icons">
+                    <span>PayNow</span><span>Visa</span><span>Mastercard</span><span>Amex</span>
+                </div>
+                <div class="secure-note"><i class="fas fa-lock"></i> Secured payment · 安全支付</div>
+            </div>
+        </div>
+
+        <!-- OTHER MERITS (random 5 from all) -->
+        <div class="merits-section">
+            <div class="merits-header">
+                <h3>You might also like <small>· 其他功德</small></h3>
+                <a href="online-donations.html">View all merits →</a>
+            </div>
+            <div class="merits-grid" id="meritsGrid"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        © 2026 Dhammakaya Centre Singapore · <a href="#">Privacy Policy</a> · <a href="#">Contact Us</a>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // ── Amount selection ──────────────────────────────────────
+        let selectedAmt = 10;
+        const nameSlots = { 10: 5, 30: 5, 50: 5 };
+
+        function selectAmt(val, btn) {
+            document.querySelectorAll('.amt-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            selectedAmt = val;
+            renderDepartedFields();
+            renderSummary();
+        }
+
+        // ── Departed name fields ─────────────────────────────────
+        function renderDepartedFields() {
+            const count = nameSlots[selectedAmt] || 1;
+            const container = document.getElementById('departedFields');
+            // preserve existing values
+            const existing = container.querySelectorAll('input');
+            const values = Array.from(existing).map(i => i.value);
+
+            let html = '';
+            for (let i = 0; i < count; i++) {
+                const val = values[i] || '';
+                const required = i === 0;
+                html += `<input type="text" class="text-input" 
+                    placeholder="${required ? 'Name of departed (required)' : 'Name of departed (optional)'}" 
+                    value="${val}"
+                    style="margin-bottom:6px"
+                    ${required ? 'required' : ''}>`;
+            }
+            container.innerHTML = html;
+        }
+
+        function renderSummary() {
+            document.getElementById('summaryAmt').textContent = `SGD $${selectedAmt}.00`;
+            document.getElementById('totalAmt').textContent = `SGD $${selectedAmt}`;
+        }
+
+        function handleDonate() {
+            const donorName = document.getElementById('donorInput').value.trim();
+            if (!donorName) {
+                document.getElementById('donorInput').style.borderColor = '#e24b4a';
+                setTimeout(() => document.getElementById('donorInput').style.borderColor = '', 1200);
+                document.getElementById('donorInput').focus();
+                return;
+            }
+
+            const departedInputs = document.getElementById('departedFields').querySelectorAll('input');
+            const firstDeparted = departedInputs[0].value.trim();
+            if (!firstDeparted) {
+                departedInputs[0].style.borderColor = '#e24b4a';
+                setTimeout(() => departedInputs[0].style.borderColor = '', 1200);
+                departedInputs[0].focus();
+                return;
+            }
+
+            const departedNames = Array.from(departedInputs)
+                .map(i => i.value.trim())
+                .filter(n => n);
+
+            alert('Thank you for your generous donation! 🙏\nSadhu Sadhu Sadhu!\n\n' +
+                `Donor: ${donorName}\n` +
+                `Amount: SGD $${selectedAmt}\n\n` +
+                `Departed loved ones:\n` +
+                departedNames.map((n, i) => `${i + 1}. ${n}`).join('\n'));
+        }
+
+        // init
+        renderDepartedFields();
+        renderSummary();
+
+
+        // ── Random merits ─────────────────────────────────────
+        const allMerits = [
+            { name: 'Offering to Buddha', cn: '供佛', img: 'images/offer budha.jpg', href: 'offering-to-buddha.html' },
+            { name: 'Alms Offering', cn: '供僧', img: 'images/alms offering.jpg', href: 'alms-offering.html' },
+            { name: 'Birth Month Celebration', cn: '庆生月', img: 'images/birth month celebration.jpg', href: 'birth-month-celebration.html' },
+            { name: 'Transference of Merit', cn: '回向功德', img: 'images/Transfer-of-Merit02.jpg', href: 'transference-of-merit.html' },
+            { name: 'Light Offering to Buddha', cn: '供灯', img: 'images/light offering to buddha.jpg', href: 'light-offering-to-buddha.html' },
+            { name: 'Offer Medical Fund', cn: '供僧医疗基金', img: 'images/medical fund.jpg', href: 'offer-medical-fund.html' },
+            { name: 'Wealth & Prosperity', cn: '财富与繁荣', img: 'images/wealth prosperity.jpg', href: 'wealth-prosperity.html' },
+            { name: 'DCS 30-Year Merit Fund', cn: '三十年功德基金', img: 'images/dcs daytime.jpg', href: 'dcs 30-year merit fund.html' },
+            { name: 'Qing Ming Transference', cn: '清明回向功德', img: 'images/qing ming transference.jpg', href: 'qing-ming-transference-of-merit.html' }
+        ];
+        const currentPage = location.pathname.split('/').pop() || 'index.html';
+        const others = allMerits.filter(m => m.href !== currentPage);
+        for (let i = others.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [others[i], others[j]] = [others[j], others[i]];
+        }
+        const grid = document.getElementById('meritsGrid');
+        if (grid) {
+            grid.innerHTML = others.slice(0, 5).map(m =>
+                `<a class="merit-card" href="${m.href}">
+                    <div class="img"><img src="${m.img}" alt="${m.name}"></div>
+                    <div class="info"><h4>${m.name}<small>${m.cn}</small></h4></div>
+                </a>`
+            ).join('');
+        }
+    </script>
+
+</html>

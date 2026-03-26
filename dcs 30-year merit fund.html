@@ -16,7 +16,8 @@
         <div class="nav-inner">
             <a href="index.html" class="nav-logo">
                 <img class="icon" src="images/logo.png" alt="DCS Logo">
-                <div>Dhammakaya Centre Singapore<br><span style="font-size:11px;font-weight:400;opacity:.7">新加坡法身寺</span></div>
+                <div>Dhammakaya Centre Singapore<br><span
+                        style="font-size:11px;font-weight:400;opacity:.7">新加坡法身寺</span></div>
             </a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
@@ -138,9 +139,10 @@
 
                 <div class="amount-label">Select Amount · 选择金额</div>
                 <div class="amount-grid">
-                    <button class="amt-btn" onclick="selectAmt(100,this)">$100</button>
-                    <button class="amt-btn selected" onclick="selectAmt(300,this)">$300<span
-                            class="suggested">Suggested</span></button>
+                    <button class="amt-btn" onclick="selectAmt(100,this)">$100 <span class="suggested">(Offer 1 set of
+                            picked-up robe)</span></button>
+                    <button class="amt-btn selected" onclick="selectAmt(300,this)">$300<span class="suggested">(Offer 1
+                            Full set of robe)</span></button>
                     <button class="amt-btn" onclick="selectAmt(-1,this)">Other</button>
                 </div>
                 <div class="custom-input" id="customInput">
@@ -183,7 +185,7 @@
             </div>
         </div>
 
-                <!-- OTHER MERITS (random 5 from all) -->
+        <!-- OTHER MERITS (random 5 from all) -->
         <div class="merits-section">
             <div class="merits-header">
                 <h3>You might also like <small>· 其他功德</small></h3>
@@ -313,7 +315,7 @@
 
         // init
         renderSummary();
-    
+
 
         // ── Random merits ─────────────────────────────────────
         const allMerits = [

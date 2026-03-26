@@ -183,13 +183,44 @@
             </div>
         </div>
 
-                <!-- OTHER MERITS (random 5 from all) -->
+        <!-- OTHER MERITS -->
         <div class="merits-section">
             <div class="merits-header">
                 <h3>You might also like <small>· 其他功德</small></h3>
-                <a href="online-donations.html">View all merits →</a>
+                <a href="#">View all merits →</a>
             </div>
-            <div class="merits-grid" id="meritsGrid"></div>
+            <div class="merits-grid">
+                <a class="merit-card" href="#">
+                    <div class="img"><img src="images/offer budha.jpg" alt=""></div>
+                    <div class="info">
+                        <h4>Offering to Buddha<small>供佛</small></h4>
+                    </div>
+                </a>
+                <a class="merit-card" href="#">
+                    <div class="img"><img src="images/light offering to buddha.jpg" alt=""></div>
+                    <div class="info">
+                        <h4>Light Offering to Buddha<small>供灯</small></h4>
+                    </div>
+                </a>
+                <a class="merit-card" href="#">
+                    <div class="img"><img src="images/alms offering.jpg" alt=""></div>
+                    <div class="info">
+                        <h4>Alms Offering<small>供僧</small></h4>
+                    </div>
+                </a>
+                <a class="merit-card" href="#">
+                    <div class="img"><img src="images/medical fund.jpg" alt=""></div>
+                    <div class="info">
+                        <h4>Offer Medical Fund<small>供僧医疗基金</small></h4>
+                    </div>
+                </a>
+                <a class="merit-card" href="#">
+                    <div class="img"><img src="images/wealth prosperity.jpg" alt=""></div>
+                    <div class="info">
+                        <h4>Wealth & Prosperity<small>财富与繁荣</small></h4>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 
@@ -313,35 +344,6 @@
 
         // init
         renderSummary();
-    
-
-        // ── Random merits ─────────────────────────────────────
-        const allMerits = [
-            { name: 'Offering to Buddha', cn: '供佛', img: 'images/offer budha.jpg', href: 'offering-to-buddha.html' },
-            { name: 'Alms Offering', cn: '供僧', img: 'images/alms offering.jpg', href: 'alms-offering.html' },
-            { name: 'Birth Month Celebration', cn: '庆生月', img: 'images/birth month celebration.jpg', href: 'birth-month-celebration.html' },
-            { name: 'Transference of Merit', cn: '回向功德', img: 'images/Transfer-of-Merit02.jpg', href: 'transference-of-merit.html' },
-            { name: 'Light Offering to Buddha', cn: '供灯', img: 'images/light offering to buddha.jpg', href: 'light-offering-to-buddha.html' },
-            { name: 'Offer Medical Fund', cn: '供僧医疗基金', img: 'images/medical fund.jpg', href: 'offer-medical-fund.html' },
-            { name: 'Wealth & Prosperity', cn: '财富与繁荣', img: 'images/wealth prosperity.jpg', href: 'wealth-prosperity.html' },
-            { name: 'DCS 30-Year Merit Fund', cn: '三十年功德基金', img: 'images/dcs daytime.jpg', href: 'dcs 30-year merit fund.html' },
-            { name: 'Qing Ming Transference', cn: '清明回向功德', img: 'images/qing ming transference.jpg', href: 'qing-ming-transference-of-merit.html' }
-        ];
-        const currentPage = location.pathname.split('/').pop() || 'index.html';
-        const others = allMerits.filter(m => m.href !== currentPage);
-        for (let i = others.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [others[i], others[j]] = [others[j], others[i]];
-        }
-        const grid = document.getElementById('meritsGrid');
-        if (grid) {
-            grid.innerHTML = others.slice(0, 5).map(m =>
-                `<a class="merit-card" href="${m.href}">
-                    <div class="img"><img src="${m.img}" alt="${m.name}"></div>
-                    <div class="info"><h4>${m.name}<small>${m.cn}</small></h4></div>
-                </a>`
-            ).join('');
-        }
     </script>
 
 </html>
